@@ -1,5 +1,5 @@
 <li class="nav-item">
-    <a href="../widgets.html" class="nav-link">
+    <a href="{{ route('admin.member.index') }}" class="nav-link">
         <i class="nav-icon fas fa-user-friends"></i>
         <p>Membri</p>
     </a>
