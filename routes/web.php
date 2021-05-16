@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 Route::namespace('Admin') -> prefix('admin') -> name('admin.') -> middleware('auth') -> group(function() {
-    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/', 'HomeController@index')->name('dashboard');
 });
 
 Auth::routes(['register' => false]);
