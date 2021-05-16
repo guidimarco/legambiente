@@ -23,6 +23,9 @@ Route::namespace('Admin') -> prefix('admin') -> name('admin.') -> middleware('au
 
     // member
     Route::resource('/member', 'MemberController');
+
+    // post
+    Route::resource('/post', 'PostController');
 });
 
 Auth::routes(['register' => false]);
