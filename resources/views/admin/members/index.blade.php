@@ -23,14 +23,16 @@
 
     <div class="row">
         <div class="col-12 d-flex justify-content-center">
-            <a href="{{ route('admin.member.create') }}" class="btn btn-primary my-2">
-                Crea un nuovo membro
-            </a>
             @if (session('success'))
-                <div class="alert alert-success">
+                <div class="alert alert-success alert-dismissible" style="position: fixed; z-index: 1; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <h5><i class="icon fas fa-check"></i> Alert!</h5>
                     {{ session('success') }}
                 </div>
             @endif
+            <a href="{{ route('admin.member.create') }}" class="btn btn-primary my-2">
+                Crea un nuovo membro
+            </a>
         </div>
     </div>
 
@@ -63,7 +65,7 @@
                                     <td>{{ $member->surname }}</td>
                                     <td>{{ $member->role }}</td>
                                     <td>{{ $member->visible }}</td>
-                                    <td class="w-25">
+                                    <td>
                                         <div class="btn-group">
                                             <a href="{{ route('admin.member.show', ['member' => $member->id]) }}" class="btn btn-sm btn-outline-info">
                                                 <i class="fas fa-plus"></i>

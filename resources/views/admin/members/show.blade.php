@@ -13,7 +13,7 @@
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
                     <li class="breadcrumb-item"><a href="{{ route('admin.member.index') }}">Membri</a></li>
-                    <li class="breadcrumb-item">Membro</li>
+                    <li class="breadcrumb-item">{{ $member->name }} {{ $member->surname }}</li>
                 </ol>
             </div>
         </div>
@@ -35,6 +35,38 @@
                     Elimina
                 </a>
             </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center">
+            <ul>
+                <li>
+                    id: {{ $member->id }}
+                </li>
+                <li>
+                    name: {{ $member->name }}
+                </li>
+                <li>
+                    cognome: {{ $member->surname }}
+                </li>
+                <li>
+                    ruolo: {{ $member->role }}
+                </li>
+                <li>
+                    descrizione: {{ $member->description }}
+                </li>
+                <li>
+                    ruolo: {{ $member->role }}
+                </li>
+                <li>
+                    visibile: {{ $member->visible }}
+                </li>
+                <li>
+                    img:
+                    <img src="{{ asset("storage/$member->img") }}" alt="immagine">
+                </li>
+            </ul>
         </div>
     </div>
 

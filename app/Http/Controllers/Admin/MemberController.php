@@ -52,7 +52,6 @@ class MemberController extends Controller
 
         // save all request info
         $member_info = $request->all();
-        dump($member_info);
 
         // new istance
         $new_member = new Member();
@@ -60,21 +59,18 @@ class MemberController extends Controller
         // img
         if (array_key_exists('img', $member_info)) {
             $img_path = Storage::put('member-img', $member_info['img']);
-            dump($img_path);
             $member_info['img'] = $img_path;
-            dump($member_info['img']);
         }
 
         // visible
         if (array_key_exists('visible', $member_info)) {
             $member_info['visible'] = 1;
         }
-        dump($member_info);
 
         $new_member->fill($member_info);
         $new_member->save();
 
-        // return redirect()->route('admin.member.index')->withSuccess('Salvataggio avvenuto correttamente');
+        return redirect()->route('admin.member.index')->withSuccess('Salvataggio avvenuto correttamente');
     }
 
     /**
@@ -103,7 +99,13 @@ class MemberController extends Controller
      */
     public function edit(Member $member)
     {
-        //
+        if ($member) {
+            $data = [
+                'member' => $member
+            ];
+            return view('admin.members.edit', $data);
+        }
+        abort(404);
     }
 
     /**
@@ -115,7 +117,32 @@ class MemberController extends Controller
      */
     public function update(Request $request, Member $member)
     {
-        //
+        // validation
+        $request -> validate([
+            'name' => 'required|max:255',
+            'surname' => 'required|max:255',
+            // 'mail' => 'nullable|email:rfc,dns|unique:members|max:255',
+            'role' => 'max:255',
+            'img' => 'nullable|image|max:512'
+        ]);
+
+        // save all request info
+        $member_info = $request->all();
+
+        // img
+        if (array_key_exists('img', $member_info)) {
+            $img_path = Storage::put('member-img', $member_info['img']);
+            $member_info['img'] = $img_path;
+        }
+
+        // visible
+        if (array_key_exists('visible', $member_info)) {
+            $member_info['visible'] = 1;
+        }
+
+        $member->update($member_info);
+
+        return redirect()->route('admin.member.show', ['member' => $member->id])->withSuccess('Salvataggio avvenuto correttamente');
     }
 
     /**
