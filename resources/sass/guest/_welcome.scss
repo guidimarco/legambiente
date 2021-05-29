@@ -1,0 +1,8 @@
+// Jumbotron
+#jumbotron {
+    height: 100vh;
+    background-image: url(~/img/jumbotron.jpg);
+    background-position: center;
+    background-size: cover;
+    @include flex(row, center, center);
+}

@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    margin: 0;
+}
+
+li {
+    list-style-type: none;
+    display: inline-block;
+}
+
+a {
+    color: unset;
+    text-decoration: none;
+    &:hover {
+        color: unset;
+    }
+}
+
+body {
+    font-family: 'Lato', Arial, Helvetica, sans-serif;
+}
+
+#brand-logo {
+    max-width: 80px;
+}

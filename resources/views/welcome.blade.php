@@ -1,4 +1,14 @@
-@extends('layouts.app')
+@extends('layouts.guest.app')
+
+@section('content')
+    <!-- Jumbotron -->
+    <section id="jumbotron">
+        <h1>
+            <span id="main-title">Legambiente</span><br/>
+            <span id="subtitle">Capannori e Piana Lucchese</span>
+        </h1>
+    </section>
+@endsection
 
 <!-- <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">

@@ -20,8 +20,9 @@
 <body class="hold-transition sidebar-mini layout-fixed">
 <div id="app">
     <!-- Navbar -->
-    @include('layouts.navbar')
-    ciao
+    @include('layouts.guest.navbar')
+    
+    @yield('content')
 
 </div>
 

@@ -1,0 +1,96 @@
+#welcome-nav {
+    background-color: rgba(255,255,255, 0.8);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 20px 0;
+    #menu-wrapper {
+        @include flex(column, center, center);
+
+        & > li:first-child {
+            flex-grow: 1;
+        }
+        #main-menu {
+            @include flex(column, center, center);
+            
+            #menu-items {
+                text-align: center;
+                li {
+                    display: block;
+                    padding: 10px 0;
+                    border-top: 1px solid transparent;
+                    border-bottom: 1px solid transparent;
+                    text-transform: uppercase;
+                    font-size: 14px;
+                    font-weight: 500;
+                    letter-spacing: 0.1em;
+                    color: $colText;
+                    cursor: pointer;
+                    &:hover {
+                        color: $colTextHov;
+                        border-top: 1px solid $colTextHov;
+                        border-bottom: 1px solid $colTextHov;
+                    }
+                }
+            }
+        }
+
+        #social {
+            li {
+                margin-left: 10px;
+                font-size: 22px;
+                color: $colBrand;
+                cursor: pointer;
+                &:hover {
+                    color: $teal;
+                }
+                &:first-child {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $sm-min) {
+    #welcome-nav {
+        #menu-wrapper {
+            @include flex(row, space-between, center);
+            #main-menu {
+                @include flex(column, center, center);
+                #menu-items {
+                    li {
+                        display: inline-block;
+                        margin: 0 15px;
+                    }
+                }
+            }
+        }
+        #social {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            li {
+                &:first-child {
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $lg-min) {
+    #welcome-nav {
+        #menu-wrapper {
+            #main-menu {
+                @include flex(row, space-between, center);
+            }
+        }
+        #social {
+            position: relative;
+            transform: translateY(0);
+        }
+    }
+}

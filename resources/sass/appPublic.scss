@@ -1,3 +1,11 @@
-// Variables
-@import 'variables';
+// Bootstrap
+@import "~bootstrap/scss/bootstrap";
 
+// Common
+@import 'variables';
+@import 'guest/commons';
+@import 'mixin';
+
+// Welcome
+@import 'guest/welcome';
+@import 'guest/navbar';
