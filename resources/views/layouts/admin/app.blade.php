@@ -9,7 +9,7 @@
           integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
           crossorigin="anonymous"/>
 
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/appDashboard.css') }}" rel="stylesheet">
 
     @yield('third_party_stylesheets')
 
@@ -57,7 +57,7 @@
     </nav>
 
     <!-- Left side column. contains the logo and sidebar -->
-    @include('layouts.sidebar')
+    @include('layouts.admin.sidebar')
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -67,7 +67,7 @@
     </div>
 </div>
 
-<script src="{{ asset('js/app.js') }}" defer></script>
+<script src="{{ asset('js/appDashboard.js') }}" defer></script>
 
 @yield('third_party_scripts')
 
