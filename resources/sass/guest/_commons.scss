@@ -28,3 +28,18 @@ body {
 #brand-logo {
     max-width: 80px;
 }
+
+#social {
+    li {
+        margin-left: 10px;
+        font-size: 22px;
+        color: $colBrand;
+        cursor: pointer;
+        &:hover {
+            color: $teal;
+        }
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+}

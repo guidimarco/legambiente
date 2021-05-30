@@ -10974,6 +10974,21 @@ body {
   max-width: 80px;
 }
 
+#social li {
+  margin-left: 10px;
+  font-size: 22px;
+  color: #008E4F;
+  cursor: pointer;
+}
+
+#social li:hover {
+  color: #20c997;
+}
+
+#social li:first-child {
+  margin-left: 0;
+}
+
 #main-section {
   min-height: 100vh;
   background-image: url(/img/jumbotron.jpg);
@@ -11047,21 +11062,6 @@ body {
   border-bottom: 1px solid #435061;
 }
 
-#welcome-nav #menu-wrapper #social li {
-  margin-left: 10px;
-  font-size: 22px;
-  color: #008E4F;
-  cursor: pointer;
-}
-
-#welcome-nav #menu-wrapper #social li:hover {
-  color: #20c997;
-}
-
-#welcome-nav #menu-wrapper #social li:first-child {
-  margin-left: 0;
-}
-
 @media screen and (min-width: 576px) {
   #welcome-nav #menu-wrapper {
     display: flex;
@@ -11108,10 +11108,23 @@ body {
   }
 }
 
-footer #footer-title {
-  font-size: 26px;
+footer div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px 0;
+}
+
+footer div #footer-title {
+  font-size: 20px;
   text-align: center;
   text-transform: uppercase;
   font-family: "Cabin Sketch", cursive;
+  margin: 0;
 }
 
