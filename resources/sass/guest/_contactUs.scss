@@ -7,6 +7,9 @@
         li {
             display: block;
             @include flex(row, flex-start, center);
+            .contact-info {
+                font-family: 'Cabin Sketch', cursive;
+            }
         }
     }
 }

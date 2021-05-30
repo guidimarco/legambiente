@@ -29,7 +29,9 @@
     </section>
 
     <!-- Footer -->
-    @include('layouts.guest.footer')
+    @if (Route::current()->getName() != 'contact-us')
+        @include('layouts.guest.footer')
+    @endif
 </div>
 
 <script src="{{ asset('js/appPublic.js') }}" defer></script>
