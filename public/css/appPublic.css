@@ -10989,6 +10989,23 @@ body {
   margin-left: 0;
 }
 
+.social {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  font-size: 22px;
+  color: #008E4F;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.social:hover {
+  color: #20c997;
+}
+
 #main-section {
   min-height: 100vh;
   background-image: url(/img/jumbotron.jpg);
@@ -11058,7 +11075,7 @@ body {
 
 #welcome-nav #menu-wrapper #main-menu #menu-items li {
   display: block;
-  padding: 10px 0;
+  padding: 0;
   border-top: 1px solid transparent;
   border-bottom: 1px solid transparent;
   text-transform: uppercase;
@@ -11073,6 +11090,10 @@ body {
   color: #435061;
   border-top: 1px solid #435061;
   border-bottom: 1px solid #435061;
+}
+
+#welcome-nav #menu-wrapper #main-menu #menu-items li a {
+  padding: 10px 0px;
 }
 
 @media screen and (min-width: 576px) {
@@ -11233,5 +11254,20 @@ footer div #footer-title.legambiente {
     width: 60vw;
     margin: auto;
   }
+}
+
+#contact-us {
+  max-width: 440px;
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 12px;
+}
+
+#contact-us #contacts li {
+  display: block;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
 }
 

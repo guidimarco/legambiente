@@ -43,3 +43,16 @@ body {
         }
     }
 }
+
+.social {
+    @include flex(row, center, center);
+    width: 50px;
+    height: 50px;
+    font-size: 22px;
+    color: $colBrand;
+    cursor: pointer;
+    padding: 5px;
+    &:hover {
+        color: $teal;
+    }
+}

@@ -4,7 +4,7 @@
 <div id="next-page" class="container-fluid">
     <div class="row">
         <div class="col-12 text-center">
-            <h1>--> I prossimi eventi <--</h1>
+            <h1><span class="d-none d-sm-inline-block">-->&nbsp;</span>I prossimi eventi<span class="d-none d-sm-inline-block">&nbsp;<--</span></h1>
         </div>
         <div class="col-12">
             <div id="carouselWrapper" class="carousel slide" data-ride="carousel">

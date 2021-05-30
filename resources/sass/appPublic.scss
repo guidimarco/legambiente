@@ -3,8 +3,8 @@
 
 // Common
 @import 'variables';
-@import 'guest/commons';
 @import 'mixin';
+@import 'guest/commons';
 @import 'guest/main';
 
 // Welcome
@@ -14,3 +14,4 @@
 @import 'guest/footer';
 @import 'guest/menu';
 @import 'guest/next';
+@import 'guest/contactUs';

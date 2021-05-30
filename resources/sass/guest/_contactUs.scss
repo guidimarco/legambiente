@@ -1,0 +1,12 @@
+#contact-us {
+    max-width: 440px;
+    margin: auto;
+    background-color: rgba(255,255,255, 0.4);
+    border-radius: 12px;
+    #contacts {
+        li {
+            display: block;
+            @include flex(row, flex-start, center);
+        }
+    }
+}
