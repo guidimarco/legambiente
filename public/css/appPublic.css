@@ -11141,6 +11141,20 @@ footer div #footer-title {
   margin: 0;
 }
 
+footer div #footer-title.legambiente {
+  display: none;
+}
+
+@media screen and (min-width: 576px) {
+  footer div #footer-title.legambiente {
+    display: block;
+  }
+
+  footer div #footer-title.seguici {
+    display: none;
+  }
+}
+
 #menu-logo {
   position: fixed;
   top: 0;
@@ -11151,8 +11165,7 @@ footer div #footer-title {
 
 #next-page #carouselWrapper {
   height: 60vh;
-  width: 60vw;
-  margin: auto;
+  width: 100%;
 }
 
 #next-page #carouselWrapper .carousel-inner {
@@ -11196,5 +11209,12 @@ footer div #footer-title {
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+@media screen and (min-width: 576px) {
+  #next-page #carouselWrapper {
+    width: 60vw;
+    margin: auto;
+  }
 }
 

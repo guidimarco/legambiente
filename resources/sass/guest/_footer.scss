@@ -11,5 +11,21 @@ footer div {
         text-transform: uppercase;
         font-family: 'Cabin Sketch', cursive;
         margin: 0;
+        &.legambiente {
+            display: none;
+        }
+    }
+}
+
+@media screen and (min-width: $sm-min) {
+    footer div {
+        #footer-title {
+            &.legambiente {
+                display: block;
+            }
+            &.seguici {
+                display: none;
+            }
+        }
     }
 }

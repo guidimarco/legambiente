@@ -1,8 +1,7 @@
 #next-page {
     #carouselWrapper {
         height: 60vh;
-        width: 60vw;
-        margin: auto;
+        width: 100%;
 
         .carousel-inner {
             height: 100%;
@@ -36,6 +35,15 @@
                     right: 0;
                 }
             }
+        }
+    }
+}
+
+@media screen and (min-width: $sm-min) {
+    #next-page {
+        #carouselWrapper {
+            width: 60vw;
+            margin: auto;
         }
     }
 }
