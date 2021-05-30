@@ -24,6 +24,20 @@
                     top: 0;
                     left: 0;
                     right: 0;
+                    .carousel-icons {
+                        position: absolute;
+                        top: 20px;
+                        right: 20px;
+                        & > a {
+                            cursor: pointer;
+                            margin-left: 10px;
+                            font-size: 22px;
+                            color: $colBrand;
+                            &:hover {
+                                color: $teal;
+                            }
+                        }
+                    }
                 }
                 &::before {
                     content:'';
