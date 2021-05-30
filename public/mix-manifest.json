@@ -1,6 +1,6 @@
 {
     "/js/appDashboard.js": "/js/appDashboard.js",
     "/js/appPublic.js": "/js/appPublic.js",
-    "/css/appDashboard.css": "/css/appDashboard.css",
-    "/css/appPublic.css": "/css/appPublic.css"
+    "/css/appPublic.css": "/css/appPublic.css",
+    "/css/appDashboard.css": "/css/appDashboard.css"
 }

@@ -13,10 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+// admin route
+Auth::routes(['register' => false]);
 Route::namespace('Admin') -> prefix('admin') -> name('admin.') -> middleware('auth') -> group(function() {
     // dashboard
     Route::get('/', 'HomeController@index')->name('dashboard');
@@ -28,6 +26,8 @@ Route::namespace('Admin') -> prefix('admin') -> name('admin.') -> middleware('au
     Route::resource('/post', 'PostController');
 });
 
-Auth::routes(['register' => false]);
-
-Route::get('/home', 'HomeController@index')->name('home');
+// public routes
+Route::get('/', 'HomeController@index')->name('welcome');
+Route::get('/prossimi-eventi', 'HomeController@next')->name('next');
+Route::get('/contattaci', 'HomeController@contactUs')->name('contact-us');
+Route::get('/chi-siamo', 'HomeController@aboutUs')->name('about-us');

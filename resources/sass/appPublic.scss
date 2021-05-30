@@ -5,7 +5,10 @@
 @import 'variables';
 @import 'guest/commons';
 @import 'mixin';
+@import 'guest/main';
 
 // Welcome
-@import 'guest/welcome';
 @import 'guest/navbar';
+
+// App
+@import 'guest/footer';

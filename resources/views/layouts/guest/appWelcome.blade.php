@@ -20,16 +20,13 @@
 
 <body class="hold-transition sidebar-mini layout-fixed">
 <div id="app">
-    <!-- Menu -->
-    @include('layouts.guest.menu')
-
+    <!-- Navbar -->
+    @include('layouts.guest.navbar')
+    
     <!-- Main section -->
-    <section id="main-section" class="app-public">
+    <section id="main-section" class="welcome">
         @yield('content')
     </section>
-
-    <!-- Footer -->
-    @include('layouts.guest.footer')
 </div>
 
 <script src="{{ asset('js/appPublic.js') }}" defer></script>

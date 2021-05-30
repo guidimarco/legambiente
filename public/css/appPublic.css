@@ -10959,11 +10959,11 @@ li {
 
 a {
   color: unset;
-  text-decoration: none;
 }
 
 a:hover {
   color: unset;
+  text-decoration: none;
 }
 
 body {
@@ -10974,15 +10974,27 @@ body {
   max-width: 80px;
 }
 
-#jumbotron {
-  height: 100vh;
+#main-section {
+  min-height: 100vh;
   background-image: url(/img/jumbotron.jpg);
   background-position: center;
   background-size: cover;
+}
+
+#main-section.welcome {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Cabin Sketch", cursive;
+  color: #435061;
+}
+
+#main-section.welcome #main-title {
+  font-size: 26px;
+  text-align: center;
 }
 
 #welcome-nav {
@@ -11094,5 +11106,12 @@ body {
     position: relative;
     transform: translateY(0);
   }
+}
+
+footer #footer-title {
+  font-size: 26px;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Cabin Sketch", cursive;
 }
 

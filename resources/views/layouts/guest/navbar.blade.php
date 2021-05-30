@@ -13,9 +13,9 @@
 
                             <li>
                             <ul id="menu-items">
-                                <li>Next</li>
-                                <li>Chi siamo</li>
-                                <li>Contattaci</li>
+                                <li class="btn-menu"><a href="{{ route('next') }}"><span class="btn-menu-text">Next</span></a></li>
+                                <li class="btn-menu"><a href="{{ route('about-us') }}"><span class="btn-menu-text">Chi siamo</span></a></li>
+                                <li class="btn-menu"><a href="{{ route('contact-us') }}"><span class="btn-menu-text">Contattaci</span></a></li>
                             </ul>
                             </li>
                         </ul>
