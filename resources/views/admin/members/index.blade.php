@@ -64,7 +64,7 @@
                                     <td>{{ $member->name }}</td>
                                     <td>{{ $member->surname }}</td>
                                     <td>{{ $member->role }}</td>
-                                    <td>{{ $member->visible }}</td>
+                                    <td>{{ ($member->visible === 1) ? 'SI' : 'NO' }}</td>
                                     <td>
                                         <div class="btn-group">
                                             <a href="{{ route('admin.member.show', ['member' => $member->id]) }}" class="btn btn-sm btn-outline-info">
@@ -73,13 +73,13 @@
                                             <a href="{{ route('admin.member.edit', ['member' => $member->id]) }}" class="btn btn-sm btn-outline-secondary">
                                                 <i class="fas fa-edit"></i>
                                             </a>
-                                            <a href="#" id="link-delete-" class="btn btn-sm btn-outline-danger">
+                                            <a href="#" id="link-delete-{{ $member->id }}" class="btn btn-sm btn-outline-danger">
                                                 <i class="far fa-trash-alt"></i>
                                             </a>
                                         </div>
                                         
 
-                                        <form class="d-none" id="form-delete-" action="#" method="POST">
+                                        <form class="d-none" id="form-delete-{{ $member->id }}" action="{{ route('admin.member.destroy', ['member' => $member->id]) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
 

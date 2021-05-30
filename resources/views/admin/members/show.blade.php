@@ -20,56 +20,70 @@
     </div><!-- /.container-fluid -->
 </section>
 
-<div class="container-fluid">
-
+<!-- Main content -->
+<section class="content">
     <div class="row">
-        <div class="col-12 d-flex justify-content-center">
-            <div class="btn-group">
-                <a href="{{ route('admin.member.index') }}" class="btn btn-outline-primary">
-                    Members
-                </a>
-                <a href="{{ route('admin.member.edit', ['member' => $member->id]) }}" class="btn btn-outline-secondary">
-                    Modifica
-                </a>
-                <a href="{{ route('admin.member.destroy', ['member' => $member->id]) }}" id="link-delete-" class="btn btn-outline-danger">
-                    Elimina
-                </a>
+        <div class="@if (isset($member->img)) col-6 @else col-12 @endif">
+            <div class="card card-primary">
+                <div class="card-header bg-light">
+                    <h3 class="card-title">Info membro</h3>
+                </div><!-- /.card-header -->
+
+                <!-- start -->
+                <div class="card-body">
+                    <!-- Name -->
+                    <div class="form-group">
+                        <label for="name">Nome</label>
+                        <input type="text" id="name" class="form-control" name="name" value="{{ $member->name }}" readonly>
+                    </div>
+
+                    <!-- Surname -->
+                    <div class="form-group">
+                        <label for="surname">Cognome</label>
+                        <input type="text" id="surname" class="form-control" name="surname" value="{{ $member->surname }}" readonly>
+                    </div>
+
+                    <!-- Mail -->
+                    <div class="form-group">
+                        <label for="mail">Mail</label>
+                        <input type="text" id="mail" class="form-control" name="mail" value="{{ $member->mail }}" readonly>
+                    </div>
+
+                    <!-- Role -->
+                    <div class="form-group">
+                        <label for="role">Ruolo</label>
+                        <input type="text" id="role" class="form-control" name="role" value="{{ $member->role }}" readonly>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="form-group">
+                        <label for="description">Descrizione</label>
+                        <textarea id="description" class="form-control" rows="4" name="description" readonly>{{ $member->description }}</textarea>
+                    </div>
+
+                    <!-- Visible -->
+                    @if ($member->visible === 1)
+                    <p class="">Il profilo è sul sito</p>
+                    @else
+                    <p class="">Il profilo non è sul sito</p>
+                    @endif
+                </div><!-- /.card-body -->
             </div>
         </div>
-    </div>
+        @if (isset($member->img))
+        <div class="col-6">
+            <div class="card card-primary">
+                <div class="card-header bg-light">
+                    <h3 class="card-title">Foto</h3>
+                </div><!-- /.card-header -->
 
-    <div class="row">
-        <div class="col-12 d-flex justify-content-center">
-            <ul>
-                <li>
-                    id: {{ $member->id }}
-                </li>
-                <li>
-                    name: {{ $member->name }}
-                </li>
-                <li>
-                    cognome: {{ $member->surname }}
-                </li>
-                <li>
-                    ruolo: {{ $member->role }}
-                </li>
-                <li>
-                    descrizione: {{ $member->description }}
-                </li>
-                <li>
-                    ruolo: {{ $member->role }}
-                </li>
-                <li>
-                    visibile: {{ $member->visible }}
-                </li>
-                <li>
-                    img:
-                    <img src="{{ asset("storage/$member->img") }}" alt="immagine">
-                </li>
-            </ul>
+                <!-- start -->
+                <div class="card-body">
+                    <img class="w-100" src="<?= asset("storage/$member->img") ?>" alt="foto membro {{ $member->name }} {{ $member->surname }}">
+                </div><!-- /.card-body -->
+            </div>
         </div>
+        @endif  
     </div>
-
-
-</div>
+</section><!-- /.content -->
 @endsection

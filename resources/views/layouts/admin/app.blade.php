@@ -10,6 +10,9 @@
           crossorigin="anonymous"/>
 
     <link href="{{ asset('css/appDashboard.css') }}" rel="stylesheet">
+    <!-- <script src="sweetalert2.all.min.js"></script> -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
     @yield('third_party_stylesheets')
 
