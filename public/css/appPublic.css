@@ -10971,7 +10971,7 @@ body {
 }
 
 #brand-logo {
-  max-width: 80px;
+  max-width: 60px;
 }
 
 #social li {
@@ -11010,6 +11010,19 @@ body {
 #main-section.welcome #main-title {
   font-size: 26px;
   text-align: center;
+}
+
+#main-section.app-public {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#main-section.app-public h1 {
+  text-transform: uppercase;
+  font-size: 26px;
+  font-family: "Cabin Sketch", cursive;
 }
 
 #welcome-nav {
@@ -11134,5 +11147,54 @@ footer div #footer-title {
   left: 0;
   right: 0;
   padding: 20px 0;
+}
+
+#next-page #carouselWrapper {
+  height: 60vh;
+  width: 60vw;
+  margin: auto;
+}
+
+#next-page #carouselWrapper .carousel-inner {
+  height: 100%;
+}
+
+#next-page #carouselWrapper .carousel-inner .carousel-item {
+  position: relative;
+  height: 100%;
+}
+
+#next-page #carouselWrapper .carousel-inner .carousel-item img {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+#next-page #carouselWrapper .carousel-inner .carousel-item .carousel-caption {
+  display: flex !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  color: #435061;
+  background-color: rgba(255, 255, 255, 0.8);
+  position: absolute;
+  height: 140px;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#next-page #carouselWrapper .carousel-inner .carousel-item::before {
+  content: "";
+  background-color: rgba(255, 255, 255, 0.2);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 

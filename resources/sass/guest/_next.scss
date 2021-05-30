@@ -1,0 +1,41 @@
+#next-page {
+    #carouselWrapper {
+        height: 60vh;
+        width: 60vw;
+        margin: auto;
+
+        .carousel-inner {
+            height: 100%;
+            .carousel-item {
+                position: relative;
+                height: 100%;
+                img {
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                }
+                .carousel-caption {
+                    display: flex!important;
+                    @include flex(column, center, center);
+                    width: 100%;
+                    color: $colTextHov;
+                    background-color: rgba(255, 255, 255, 0.8);
+                    position: absolute;
+                    height: 140px;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                }
+                &::before {
+                    content:'';
+                    background-color: rgba(255, 255, 255, 0.2);
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                }
+            }
+        }
+    }
+}
