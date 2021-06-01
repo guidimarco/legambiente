@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Post;
 use Illuminate\Http\Request;
 
+use App\Tag;
+use App\Member;
+
 class PostController extends Controller
 {
     /**
@@ -15,7 +18,11 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('admin.posts');
+        $data = [
+            'posts' => Post::all()
+        ];
+
+        return view('admin.posts.index', $data);
     }
 
     /**
