@@ -103,7 +103,14 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        if ($post)
+        {
+            $data = [
+                'post' => $post
+            ];
+            return view('admin.posts.edit', $data);
+        }
+        abort(404);
     }
 
     /**
@@ -115,7 +122,37 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        // validation
+        $request->validate([
+            'title' => 'required|max:255',
+            'body' => 'required',
+        ]);
+
+        // get all info
+        $post_info = $request->all();
+
+        $post_old_title = Post::where('id', $post->id)->first()->pluck('title')->get(0);
+
+        if ($post_info['title'] !== $post_old_title)
+        {
+            // slug generator
+            $base_slug = Str::slug($post_info['title'], '-');
+            $slug = $base_slug;
+            $already_slug = Post::where('slug', $slug)->first();
+
+            $i = 1;
+            while ($already_slug) {
+                $slug = $base_slug . '-' . $i;
+                $i++;
+                $already_slug = Post::where('slug', $slug)->first();
+            }
+
+            $post_info['slug'] = $slug;
+        }
+
+        $post->update($post_info);
+
+        return redirect()->route('admin.post.index')->withMessage('Salvataggio avvenuto correttamente');
     }
 
     /**
@@ -126,6 +163,8 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+
+        return redirect()->route('admin.post.index');
     }
 }

@@ -6,14 +6,14 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Membri</h1>
+                <h1>Posts</h1>
             </div>
 
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('admin.member.index') }}">Membri</a></li>
-                    <li class="breadcrumb-item">{{ $member->name }} {{ $member->surname }}</li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.post.index') }}">Posts</a></li>
+                    <li class="breadcrumb-item">{{ $post->title }}</li>
                 </ol>
             </div>
         </div>
@@ -30,7 +30,7 @@
                 </div><!-- /.card-header -->
 
                 <!-- form start -->
-                <form method="POST" action="{{ route('admin.member.update', ['member' => $member->id]) }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('admin.post.update', ['post' => $post->id]) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 
@@ -47,50 +47,16 @@
                             </div>
                         @endif
 
-                        <!-- Name -->
+                        <!-- Title -->
                         <div class="form-group">
-                            <label for="name">Nome</label>
-                            <input type="text" id="name" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="Inserisci il nome" value="{{ old('name', $member->name) }}">
+                            <label for="title">Titolo</label>
+                            <input type="text" id="title" class="form-control @error('title') is-invalid @enderror" name="title" placeholder="Inserisci il titolo" value="{{ old('title', $post->title) }}">
                         </div>
 
-                        <!-- Surname -->
+                        <!-- Body -->
                         <div class="form-group">
-                            <label for="surname">Cognome</label>
-                            <input type="text" id="surname" class="form-control @error('surname') is-invalid @enderror" name="surname" placeholder="Inserisci il cognome" value="{{ old('surname', $member->surname) }}">
-                        </div>
-
-                        <!-- Mail -->
-                        <div class="form-group">
-                            <label for="mail">Mail</label>
-                            <input type="text" id="mail" class="form-control @error('mail') is-invalid @enderror" name="mail" placeholder="Inserisci la mail" value="{{ old('mail', $member->mail) }}">
-                        </div>
-
-                        <!-- Role -->
-                        <div class="form-group">
-                            <label for="role">Ruolo</label>
-                            <input type="text" id="role" class="form-control @error('role') is-invalid @enderror" name="role" placeholder="Inserisci il ruolo" value="{{ old('role', $member->role) }}">
-                        </div>
-
-                        <!-- Description -->
-                        <div class="form-group">
-                            <label for="description">Descrizione</label>
-                            <textarea id="description" class="form-control" rows="4" name="description" placeholder="Inserisci una breve descrizione">{{ old('description', $member->description) }}</textarea>
-                        </div>
-
-                        <!-- Visible -->
-                        <div class="form-group">
-                            <div class="custom-control custom-switch">
-                                <input type="checkbox" class="custom-control-input" id="visible" name="visible" value="{{ old('visible', $member->visible) }}">
-                                <label class="custom-control-label" for="visible">Rendi visibile sul sito</label>
-                            </div>
-                        </div>
-
-                        <!-- Img -->
-                        <div class="input-group">
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input  @error('img') is-invalid @enderror" id="img" name="img">
-                                <label class="custom-file-label" for="img">Scegli immagine</label>
-                            </div>
+                            <label for="body">Articolo</label>
+                            <textarea id="body" class="form-control" rows="4" name="body" placeholder="Inserisci il corpo dell'articolo">{{ old('body', $post->body) }}</textarea>
                         </div>
                     </div><!-- /.card-body -->
 
