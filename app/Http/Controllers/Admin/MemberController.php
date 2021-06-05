@@ -42,7 +42,7 @@ class MemberController extends Controller
     public function store(Request $request)
     {
         // validation
-        $request -> validate([
+        $request->validate([
             'name' => 'required|max:255',
             'surname' => 'required|max:255',
             'mail' => 'nullable|email:rfc,dns|unique:members|max:255',

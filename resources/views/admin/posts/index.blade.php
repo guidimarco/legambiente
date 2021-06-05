@@ -30,7 +30,7 @@
                     {{ session('success') }}
                 </div>
             @endif
-            <a href="{{ route('admin.member.create') }}" class="btn btn-primary my-2">
+            <a href="{{ route('admin.post.create') }}" class="btn btn-primary my-2">
                 Crea un nuovo post
             </a>
         </div>
