@@ -85,7 +85,14 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        if ($post)
+        {
+            $data = [
+                'post' => $post
+            ];
+            return view('admin.posts.show', $data);
+        }
+        abort(404);
     }
 
     /**
