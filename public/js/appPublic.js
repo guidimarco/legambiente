@@ -35404,9 +35404,9 @@ try {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\proj_boolean\20210331_legambiente\legambiente\resources\js\appPublic.js */"./resources/js/appPublic.js");
-__webpack_require__(/*! C:\MAMP\htdocs\proj_boolean\20210331_legambiente\legambiente\resources\sass\appPublic.scss */"./resources/sass/appPublic.scss");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\proj_boolean\20210331_legambiente\legambiente\resources\sass\appDashboard.scss */"./resources/sass/appDashboard.scss");
+__webpack_require__(/*! /home/mark_88g/Documents/Proj/legambiente/resources/js/appPublic.js */"./resources/js/appPublic.js");
+__webpack_require__(/*! /home/mark_88g/Documents/Proj/legambiente/resources/sass/appPublic.scss */"./resources/sass/appPublic.scss");
+module.exports = __webpack_require__(/*! /home/mark_88g/Documents/Proj/legambiente/resources/sass/appDashboard.scss */"./resources/sass/appDashboard.scss");
 
 
 /***/ })
