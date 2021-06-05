@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 use App\Tag;
 use App\Member;
@@ -32,7 +33,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.posts.create');
     }
 
     /**
@@ -43,7 +44,37 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // validation
+        $request->validate([
+            'title' => 'required|max:255',
+            'body' => 'required',
+        ]);
+
+        // get all info
+        $post_info = $request->all();
+
+        // new istance
+        $new_post = new Post();
+
+        // fill
+        $new_post->fill($post_info);
+
+        // slug generator
+        $base_slug = Str::slug($new_post->title, '-');
+        $slug = $base_slug;
+        $already_slug = Post::where('slug', $slug)->first();
+        $i = 1;
+        while ($already_slug) {
+            $slug = $base_slug . '-' . $i;
+            $i++;
+            $already_slug = Post::where('slug', $slug) -> first();
+        }
+
+        $new_post->slug = $slug;
+
+        $new_post->save();
+
+        return redirect()->route('admin.post.index')->withMessage('Salvataggio avvenuto correttamente');
     }
 
     /**
