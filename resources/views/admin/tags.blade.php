@@ -43,12 +43,12 @@
                         @csrf
 
                         <div class="card-body">
-                            @if ($errors -> any())
+                            @if ($errors->any())
                                 <div class="callout callout-danger">
                                     <h5>Attenzione!</h5>
 
                                     <ul>
-                                        @foreach ($errors -> all() as $error)
+                                        @foreach ($errors->all() as $error)
                                             <li>{{ $error }}</li>
                                         @endforeach
                                     </ul>
@@ -57,7 +57,7 @@
 
                             <!-- Tag -->
                             <div class="input-group">
-                                <input type="text" id="tag" class="form-control @error('tag') is-invalid @enderror" name="tag" placeholder="Inserisci il nome del tag" value="{{ old('tag') }}" required>
+                                <input type="text" id="name" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="Inserisci il nome del tag" value="{{ old('name') }}" required>
                                 <div class="input-group-append">
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
@@ -96,7 +96,7 @@
                                     <td>{{ $tag->created_at }}</td>
                                     <td>
                                         <div class="btn-group">
-                                            <a href="{{ route('admin.tag.edit', ['tag' => $tag->id]) }}" class="btn btn-sm btn-outline-secondary">
+                                            <a href="{{ route('admin.tags.edit', ['tag' => $tag->id]) }}" class="btn btn-sm btn-outline-secondary">
                                                 <i class="fas fa-edit"></i>
                                             </a>
                                             <a href="#" id="link-delete-{{ $tag->id }}" class="btn btn-sm btn-outline-danger">
@@ -105,7 +105,7 @@
                                         </div>
                                         
 
-                                        <form class="d-none" id="form-delete-{{ $tag->id }}" action="{{ route('admin.tag.destroy', ['tag' => $tag->id]) }}" method="POST">
+                                        <form class="d-none" id="form-delete-{{ $tag->id }}" action="{{ route('admin.tags.destroy', ['tag' => $tag->id]) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
 

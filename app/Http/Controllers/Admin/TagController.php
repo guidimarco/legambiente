@@ -39,7 +39,23 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // validation
+        $request->validate([
+            'name' => 'required|max:255'
+        ]);
+
+        // get all info
+        $tag_info = $request->all();
+
+        // new istance
+        $new_tag = new Tag();
+
+        // fill
+        $new_tag->fill($tag_info);
+
+        $new_tag->save();
+
+        return redirect()->route('admin.tags.index')->withMessage('Salvataggio avvenuto correttamente');
     }
 
     /**
