@@ -71,6 +71,18 @@
                                 @endforeach
                             </select>
                         </div>
+
+                        <!-- Tags -->
+                        <label for="tags">Tags</label>
+                        <div class="form-group">
+                            @foreach ($tags as $tag)
+                            <div class="form-check">
+                                <input name="tags[]" class="form-check-input @error('member_id') is-invalid @enderror" type="checkbox" value="{{ $tag->id }}"
+                                {{ $post -> tags -> contains($tag) ? 'checked' : ''}}>
+                                <label class="form-check-label">{{ $tag->name }}</label>
+                            </div>
+                            @endforeach
+                        </div>   
                     </div><!-- /.card-body -->
 
                     <div class="card-footer">

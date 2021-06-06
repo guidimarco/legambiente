@@ -71,7 +71,7 @@
                                     </option>
                                 @endforeach
                             </select>
-                        </div>
+                        </div>            
                     </div><!-- /.card-body -->
 
                     <div class="card-footer">

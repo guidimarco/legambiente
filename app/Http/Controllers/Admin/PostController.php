@@ -34,9 +34,9 @@ class PostController extends Controller
     public function create()
     {
         $data = [
-            'members' => Member::all()
+            'members' => Member::all(),
+            'tags' => Tag::all()
         ];
-
         return view('admin.posts.create', $data);
     }
 
@@ -52,7 +52,8 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required|max:255',
             'body' => 'required',
-            'author' => 'nullable|exists:members,id'
+            'author' => 'nullable|exists:members,id',
+            'tags' => 'nullable|exists:tags,id'
         ]);
 
         // get all info
@@ -78,6 +79,11 @@ class PostController extends Controller
         $new_post->slug = $slug;
 
         $new_post->save();
+
+        // if are tags --> synt bridge table
+        if (array_key_exists('tags', $post_info)) {
+            $new_post->tags()->sync($post_info['tags']);
+        }
 
         return redirect()->route('admin.post.index')->withMessage('Salvataggio avvenuto correttamente');
     }

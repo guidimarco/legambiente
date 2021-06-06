@@ -33,6 +33,9 @@
             <a href="{{ route('admin.post.create') }}" class="btn btn-primary my-2">
                 Crea un nuovo post
             </a>
+            <a href="{{ route('admin.tags.index') }}" class="btn btn-primary my-2">
+                Tags
+            </a>
         </div>
     </div>
 
