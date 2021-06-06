@@ -55,7 +55,7 @@
                                 </div>
                             @endif
 
-                            <!-- Tag -->
+                            <!-- Name -->
                             <div class="input-group">
                                 <input type="text" id="name" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="Inserisci il nome del tag" value="{{ old('name') }}" required>
                                 <div class="input-group-append">
@@ -82,9 +82,9 @@
                         <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Nome</th>
+                                <th>Nome (Modifica)</th>
                                 <th>Creato</th>
-                                <th>Azioni</th>
+                                <th>Cancella</th>
                             </tr>
                         </thead>
 
@@ -92,13 +92,38 @@
                             @foreach ($tags as $tag)
                                 <tr>
                                     <th>{{ $tag->id }}</th>
-                                    <td>{{ $tag->name }}</td>
+                                    <td>
+                                        <!-- form start -->
+                                        <form method="POST" action="{{ route('admin.tags.update', ['tag' => $tag->id]) }}" enctype="multipart/form-data">
+                                            @csrf
+                                            @method('PUT')
+
+                                            <div class="card-body p-0">
+                                                @if ($errors -> any())
+                                                    <div class="callout callout-danger">
+                                                        <h5>Attenzione!</h5>
+
+                                                        <ul>
+                                                            @foreach ($errors -> all() as $error)
+                                                                <li>{{ $error }}</li>
+                                                            @endforeach
+                                                        </ul>
+                                                    </div>
+                                                @endif
+
+                                                <!-- Name -->
+                                                <div class="input-group">
+                                                    <input type="text" id="name" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="Inserisci il nome del tag" value="{{ old('name', $tag->name) }}" required>
+                                                    <div class="input-group-append">
+                                                        <button type="submit" class="btn btn-secondary"><i class="fas fa-edit"></i></button>
+                                                    </div>
+                                                </div>
+                                            </div><!-- /.card-body -->
+                                        </form>
+                                    </td>
                                     <td>{{ $tag->created_at }}</td>
                                     <td>
                                         <div class="btn-group">
-                                            <a href="{{ route('admin.tags.edit', ['tag' => $tag->id]) }}" class="btn btn-sm btn-outline-secondary">
-                                                <i class="fas fa-edit"></i>
-                                            </a>
                                             <a href="#" id="link-delete-{{ $tag->id }}" class="btn btn-sm btn-outline-danger">
                                                 <i class="far fa-trash-alt"></i>
                                             </a>

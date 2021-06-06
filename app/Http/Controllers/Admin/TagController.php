@@ -87,9 +87,19 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Tag $tag)
     {
-        //
+        // validation
+        $request->validate([
+            'name' => 'required|max:255'
+        ]);
+
+        // get all info
+        $tag_info = $request->all();
+
+        $tag->update($tag_info);
+
+        return redirect()->route('admin.tags.index')->withMessage('Salvataggio avvenuto correttamente');
     }
 
     /**
@@ -98,8 +108,10 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Tag $tag)
     {
-        //
+        $tag->delete();
+
+        return redirect()->route('admin.tags.index');
     }
 }
