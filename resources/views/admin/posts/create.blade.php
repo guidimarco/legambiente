@@ -49,20 +49,28 @@
                         <!-- Title -->
                         <div class="form-group">
                             <label for="title">Titolo</label>
-                            <input type="text" id="title" class="form-control @error('title') is-invalid @enderror" name="title" placeholder="Inserisci il titolo" value="{{ old('title') }}">
+                            <input type="text" id="title" class="form-control @error('title') is-invalid @enderror" name="title" placeholder="Inserisci il titolo" value="{{ old('title') }}" required>
                         </div>
 
                         <!-- Body -->
                         <div class="form-group">
                             <label for="body">Articolo</label>
-                            <textarea id="body" class="form-control" rows="4" name="body" placeholder="Inserisci il corpo dell'articolo">{{ old('body') }}</textarea>
+                            <textarea id="body" class="form-control" rows="4" name="body" placeholder="Inserisci il corpo dell'articolo" required>{{ old('body') }}</textarea>
                         </div>
 
                         <!-- Author -->
-                        <!-- <div class="form-group">
-                            <label for="author">Autore</label>
-                            <input type="text" id="author" class="form-control @error('surname') is-invalid @enderror" name="surname" placeholder="Inserisci il cognome" value="{{ old('surname') }}">
-                        </div> -->
+                        <div class="form-group">
+                            <label for="member_id">Autore</label>
+                            <select id="member_id" class="form-control @error('member_id') is-invalid @enderror" name="member_id">
+                                <option value="">Seleziona l'autore</option>
+                                @foreach ($members as $member)
+                                    <option value="{{ $member->id }}"
+                                        {{ old('author') == $member->id ? 'selected' : ''}}>
+                                        {{ $member->name . " " . $member->surname }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div><!-- /.card-body -->
 
                     <div class="card-footer">

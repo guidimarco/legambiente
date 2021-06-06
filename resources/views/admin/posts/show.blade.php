@@ -44,7 +44,7 @@
                     </div>
 
                     <!-- Creato il -->
-                    <p class="">L'articolo è stato creato il {{ $post->created_at }}</p>
+                    <p class="">L'articolo è stato scritto @if (isset($post->member)) {{ "da " . $post->member->name . " " . $post->member->surname }} @endif il {{ $post->created_at }}</p>
                 </div><!-- /.card-body -->
             </div>
         </div>

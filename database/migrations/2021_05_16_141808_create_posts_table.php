@@ -17,8 +17,8 @@ class CreatePostsTable extends Migration
             $table->id();
 
             // foreing key in posts -> author_id
-            $table->unsignedBigInteger('author_id')->nullable();
-            $table->foreign('author_id')->references('id')->on('members')->onDelete('set null');
+            $table->unsignedBigInteger('member_id')->nullable();
+            $table->foreign('member_id')->references('id')->on('members')->onDelete('set null');
 
             $table->string('title');
             $table->text('body');
@@ -36,7 +36,7 @@ class CreatePostsTable extends Migration
     public function down()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->dropForeign(['author_id']);
+            $table->dropForeign(['member_id']);
         });
 
         Schema::dropIfExists('posts');

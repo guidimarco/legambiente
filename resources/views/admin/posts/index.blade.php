@@ -63,7 +63,7 @@
                                     <th>{{ $post->id }}</th>
                                     <td>{{ $post->title }}</td>
                                     <td>{{ $post->body }}</td>
-                                    <td>{{ $post->member }}</td>
+                                    <td>@if (isset($post->member)){{ $post->member->name }}@endif</td>
                                     <td>{{ $post->created_at }}</td>
                                     <td>
                                         <div class="btn-group">

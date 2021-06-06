@@ -33,7 +33,11 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create');
+        $data = [
+            'members' => Member::all()
+        ];
+
+        return view('admin.posts.create', $data);
     }
 
     /**
@@ -48,6 +52,7 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required|max:255',
             'body' => 'required',
+            'author' => 'nullable|exists:members,id'
         ]);
 
         // get all info
@@ -106,7 +111,8 @@ class PostController extends Controller
         if ($post)
         {
             $data = [
-                'post' => $post
+                'post' => $post,
+                'members' => Member::all()
             ];
             return view('admin.posts.edit', $data);
         }
@@ -122,10 +128,13 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+        // dump($request->all());
+        // die;
         // validation
         $request->validate([
             'title' => 'required|max:255',
             'body' => 'required',
+            'author' => 'nullable|exists:members,id'
         ]);
 
         // get all info
