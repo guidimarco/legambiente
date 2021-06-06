@@ -99,7 +99,8 @@ class PostController extends Controller
         if ($post)
         {
             $data = [
-                'post' => $post
+                'post' => $post,
+                'tags' => Tag::all()
             ];
             return view('admin.posts.show', $data);
         }
@@ -118,7 +119,8 @@ class PostController extends Controller
         {
             $data = [
                 'post' => $post,
-                'members' => Member::all()
+                'members' => Member::all(),
+                'tags' => Tag::all()
             ];
             return view('admin.posts.edit', $data);
         }
@@ -134,18 +136,17 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        // dump($request->all());
-        // die;
         // validation
         $request->validate([
             'title' => 'required|max:255',
             'body' => 'required',
-            'author' => 'nullable|exists:members,id'
+            'author' => 'nullable|exists:members,id',
+            'tags' => 'nullable|exists:tags,id'
         ]);
 
         // get all info
         $post_info = $request->all();
-
+        
         $post_old_title = Post::where('id', $post->id)->first()->pluck('title')->get(0);
 
         if ($post_info['title'] !== $post_old_title)
@@ -166,6 +167,14 @@ class PostController extends Controller
         }
 
         $post->update($post_info);
+
+        // if are tags --> synt bridge table
+        if (array_key_exists('tags', $post_info)) {
+            $post->tags()->sync($post_info['tags']);
+        } else {
+            $post_info['tags'] = [];
+            $post->tags()->sync($post_info['tags']);
+        }
 
         return redirect()->route('admin.post.index')->withMessage('Salvataggio avvenuto correttamente');
     }

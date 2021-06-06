@@ -43,6 +43,23 @@
                         <textarea id="body" class="form-control" rows="4" name="body" readonly>{{ $post->body }}</textarea>
                     </div>
 
+                    <!-- Tags -->
+                    <div class="form-group">
+                        <label>Tags</label>
+                        @if ($post->tags->count() > 0)
+                            @foreach ($post->tags as $tag)
+                                <div class="form-check">
+                                    <input name="tags[]" class="form-check-input" type="checkbox" value="{{ $tag->id }}" onclick="return false;" checked>
+                                    <label class="form-check-label">
+                                        {{ $tag->name }}
+                                    </label>
+                                </div>
+                            @endforeach
+                        @else
+                            <p class="">Non ci sono tag per questo post</p>
+                        @endif
+                    </div>
+
                     <!-- Creato il -->
                     <p class="">L'articolo è stato scritto @if (isset($post->member)) {{ "da " . $post->member->name . " " . $post->member->surname }} @endif il {{ $post->created_at }}</p>
                 </div><!-- /.card-body -->
@@ -61,7 +78,7 @@
                 </div><!-- /.card-body -->
             </div>
         </div>
-        @endif  
+        @endif
     </div>
 </section><!-- /.content -->
 @endsection

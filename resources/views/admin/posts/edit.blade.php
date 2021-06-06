@@ -71,7 +71,21 @@
                                     </option>
                                 @endforeach
                             </select>
-                        </div>            
+                        </div>
+
+                        <!-- Tags -->
+                        <div class="form-group">
+                            <label>Tags</label>
+                            @foreach ($tags as $tag)
+                                <div class="form-check">
+                                    <input name="tags[]" class="form-check-input @error('tags[]') is-invalid @enderror" type="checkbox" value="{{ $tag->id }}"
+                                    {{ $post->tags->contains($tag) ? 'checked' : ''}}>
+                                    <label class="form-check-label">
+                                        {{ $tag->name }}
+                                    </label>
+                                </div>
+                            @endforeach
+                        </div>
                     </div><!-- /.card-body -->
 
                     <div class="card-footer">
