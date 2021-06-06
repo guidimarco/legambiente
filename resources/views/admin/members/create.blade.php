@@ -91,8 +91,8 @@
                         </div> -->
                         <div class="input-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input  @error('img') is-invalid @enderror" id="customFile" name="img">
-                                <label class="custom-file-label" for="customFile">Scegli immagine</label>
+                                <input type="file" class="custom-file-input  @error('img') is-invalid @enderror" id="memberImg" name="img">
+                                <label class="custom-file-label" for="memberImg" id="labelMemberImg">Scegli immagine</label>
                             </div>
                         </div>
                     </div><!-- /.card-body -->

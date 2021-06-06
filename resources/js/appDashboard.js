@@ -1,29 +1,22 @@
 require('./bootstrap');
 require('admin-lte');
-const Swal = require('sweetalert2');
 
-
-// ES6 Modules or TypeScript
-// import Swal from 'sweetalert2'
-
-// CommonJS
+import $ from 'jquery';
+window.$ = window.jQuery = $;
 
 $(document).ready(function() {
 
-    // delete item
-    $("[id^='link-delete']").click(function(event) {
-        event.preventDefault(); // STOP click
+    if (document.getElementById("memberImg").files.length == 0)
+    {
+        $('#labelMemberImg').text("Scegli l'immagine");
+    }
+    else
+    {
+        $('#labelMemberImg').text(memberImgName);
+    }
 
-        var this_form_id = $(this).attr('id').replace('link-delete', '#form-delete');
-        console.log(this_form_id);
-        $(this_form_id).submit();
-
-        // var this_form = $('#form-delete');
-        // console.log(this_form);
-
-        
-
+    $('#memberImg').change(function() {
+        var memberImgName = $('#memberImg').val().replace(/C:\\fakepath\\/i, '');
+        $('#labelMemberImg').text(memberImgName);
     });
-
 });
-

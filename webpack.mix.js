@@ -11,7 +11,9 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/appPublic.js', 'public/js')
+mix.autoload({
+    jquery: ['$', 'window.jQuery', 'jQuery']
+}).js('resources/js/appPublic.js', 'public/js')
 .js('resources/js/appDashboard.js', 'public/js')
 .sass('resources/sass/appPublic.scss', 'public/css')
 .sass('resources/sass/appDashboard.scss', 'public/css');
