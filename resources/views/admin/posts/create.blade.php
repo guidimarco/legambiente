@@ -84,6 +84,29 @@
                                 </div>
                             @endforeach
                         </div>
+
+                        <!-- Imgs -->
+                        <div class="form-group">
+                            <label>Inserisci le immagini</label>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input  @error('imgs') is-invalid @enderror" id="postImgs1" name="imgs[]" multiple>
+                                    <label class="custom-file-label" for="postImgs1" id="labelPostImgs"></label>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input  @error('imgs') is-invalid @enderror" id="postImgs2" name="imgs[]" multiple>
+                                    <label class="custom-file-label" for="postImgs2" id="labelPostImgs"></label>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input  @error('imgs') is-invalid @enderror" id="postImgs3" name="imgs[]" multiple>
+                                    <label class="custom-file-label" for="postImgs3" id="labelPostImgs"></label>
+                                </div>
+                            </div>
+                        </div>
                     </div><!-- /.card-body -->
 
                     <div class="card-footer">

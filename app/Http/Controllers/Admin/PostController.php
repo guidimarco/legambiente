@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 
 use App\Tag;
 use App\Member;
+use App\Img;
 
 class PostController extends Controller
 {
@@ -53,7 +54,9 @@ class PostController extends Controller
             'title' => 'required|max:255',
             'body' => 'required',
             'author' => 'nullable|exists:members,id',
-            'tags' => 'nullable|exists:tags,id'
+            'tags' => 'nullable|exists:tags,id',
+            'imgs' => 'nullable',
+            'imgs.*' => 'image|max:512'
         ]);
 
         // get all info
@@ -81,8 +84,28 @@ class PostController extends Controller
         $new_post->save();
 
         // if are tags --> synt bridge table
-        if (array_key_exists('tags', $post_info)) {
+        if (array_key_exists('tags', $post_info))
+        {
             $new_post->tags()->sync($post_info['tags']);
+        }
+
+        // if are images --> sync bridge table
+        if (array_key_exists('imgs', $post_info))
+        {
+            $imagesId = [];
+
+            foreach ($post_info['imgs'] as $image)
+            {
+                $new_img = new Img();
+
+                $new_img->img = $image;
+
+                $new_img->save();
+
+                $imagesId[] = $new_img->id;
+            }
+
+            $new_post->imgs()->sync($imagesId);
         }
 
         return redirect()->route('admin.post.index')->withMessage('Salvataggio avvenuto correttamente');
