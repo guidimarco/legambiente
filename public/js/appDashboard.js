@@ -35363,15 +35363,23 @@ __webpack_require__(/*! admin-lte */ "./node_modules/admin-lte/dist/js/adminlte.
 
 window.$ = __webpack_provided_window_dot_jQuery = jquery__WEBPACK_IMPORTED_MODULE_0___default.a;
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
-  if (document.getElementById("memberImg").files.length == 0) {
+  var memberInput = document.getElementById("memberImg");
+
+  if (memberInput && memberInput.files.length == 0) {
     jquery__WEBPACK_IMPORTED_MODULE_0___default()('#labelMemberImg').text("Scegli l'immagine");
-  } else {
+  } else if (memberInput) {
     jquery__WEBPACK_IMPORTED_MODULE_0___default()('#labelMemberImg').text(memberImgName);
   }
 
   jquery__WEBPACK_IMPORTED_MODULE_0___default()('#memberImg').change(function () {
     var memberImgName = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#memberImg').val().replace(/C:\\fakepath\\/i, '');
     jquery__WEBPACK_IMPORTED_MODULE_0___default()('#labelMemberImg').text(memberImgName);
+  });
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('#postImgs').change(function () {
+    var postImgsName = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#postImgs').val(); // .val();
+    // .replace(/C:\\fakepath\\/i, '');
+
+    console.log(postImgsName); // $('#labelPostImgs').text(postImgsName);
   });
 });
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))

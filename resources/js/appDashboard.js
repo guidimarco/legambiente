@@ -6,11 +6,13 @@ window.$ = window.jQuery = $;
 
 $(document).ready(function() {
 
-    if (document.getElementById("memberImg").files.length == 0)
+    var memberInput = document.getElementById("memberImg");
+    
+    if (memberInput && memberInput.files.length == 0)
     {
         $('#labelMemberImg').text("Scegli l'immagine");
     }
-    else
+    else if (memberInput)
     {
         $('#labelMemberImg').text(memberImgName);
     }
@@ -18,5 +20,13 @@ $(document).ready(function() {
     $('#memberImg').change(function() {
         var memberImgName = $('#memberImg').val().replace(/C:\\fakepath\\/i, '');
         $('#labelMemberImg').text(memberImgName);
+    });
+
+    $('#postImgs').change(function() {
+        var postImgsName = $('#postImgs').val();
+        // .val();
+        // .replace(/C:\\fakepath\\/i, '');
+        console.log(postImgsName);
+        // $('#labelPostImgs').text(postImgsName);
     });
 });
