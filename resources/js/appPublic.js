@@ -21,9 +21,10 @@ $(document).ready(function() {
             console.log(data);
             let postsArray = data.results;
             postsArray.forEach((element) => {
+                let date = new Date(element.created_at);
                 let postVariables = {
                     'tags': 'prova',
-                    'created_at': element.created_at,
+                    'created_at': date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear(),
                     'title': element.title,
                     'author': 'niente',
                     'body': element.body

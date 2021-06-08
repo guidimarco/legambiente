@@ -40435,9 +40435,10 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
       console.log(data);
       var postsArray = data.results;
       postsArray.forEach(function (element) {
+        var date = new Date(element.created_at);
         var postVariables = {
           'tags': 'prova',
-          'created_at': element.created_at,
+          'created_at': date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear(),
           'title': element.title,
           'author': 'niente',
           'body': element.body
