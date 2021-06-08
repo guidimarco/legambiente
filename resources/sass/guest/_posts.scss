@@ -1,0 +1,90 @@
+#posts-page {
+    // Filter
+
+    // Posts
+    #posts-wrapper {
+        .post-card {
+            position: relative;
+            display: block;
+            min-height: 400px;
+            background-position: center;
+            background-size: cover;
+            border-radius: 12px;
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0; bottom: 0; left: 0; right: 0;
+                background-color: rgba(255,255,255, 0.4);
+                border-radius: 12px;
+            }
+
+            &:hover .post-card-body {
+                .post-card-info {
+                    .post-card-body {
+                        display: block;
+                    }
+                }
+            }
+
+            .post-card-info {
+                position: absolute;
+                bottom: 0; left: 0; right: 0;
+                background-color: rgba(255,255,255, 0.8);
+                border-radius: 0 0 12px 12px;
+                padding: 0 16px;
+
+                .post-card-top {
+                    @include flex(row, space-between, center);
+                    padding: 4px 0;
+
+                    .tags {
+                    
+                    }
+
+                    .date {
+
+                    }
+                }
+
+                .post-card-header {
+                    @include flex(column, space-between, flex-start);
+
+                    .title {
+                    
+                    }
+
+                    .author {
+
+                    }
+                }
+
+                .post-card-body {
+                    height: 100px;
+                    max-height: 0px;
+                    transition: max-height 2s;
+                    overflow: hidden;
+                    padding: 4px 0;
+                }
+            }
+
+            &:hover {
+                .post-card-info {
+                    .post-card-body {
+                        max-height: 100px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+// @media screen and (min-width: $sm-min) {
+//     #next-page {
+//         #carouselWrapper {
+//             width: 60vw;
+//             margin: auto;
+//         }
+//     }
+// }

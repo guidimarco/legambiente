@@ -1,5 +1,7 @@
 @extends('layouts.guest.app')
 
+@include('template.postCard')
+
 @section('content')
 <div id="posts-page" class="container-fluid">
     <div class="row">
@@ -15,11 +17,7 @@
         <!-- Posts -->
         <div class="col-12">
             <div class="container-fluid">
-                <div class="row">
-                    <div id="posts-wrapper">
-                        
-                    </div>
-                </div>
+                <ul id="posts-wrapper" class="row"></ul>
             </div>
         </div>
     </div>
