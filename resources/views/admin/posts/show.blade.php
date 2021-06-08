@@ -23,7 +23,7 @@
 <!-- Main content -->
 <section class="content">
     <div class="row">
-        <div class="@if (isset($post->img)) col-6 @else col-12 @endif">
+        <div class="@if (isset($post->imgs)) col-6 @else col-12 @endif">
             <div class="card card-primary">
                 <div class="card-header bg-light">
                     <h3 class="card-title">Post info</h3>
@@ -65,7 +65,7 @@
                 </div><!-- /.card-body -->
             </div>
         </div>
-        @if (isset($post->img))
+        @if (isset($post->imgs))
         <div class="col-6">
             <div class="card card-primary">
                 <div class="card-header bg-light">
@@ -74,7 +74,9 @@
 
                 <!-- start -->
                 <div class="card-body">
-                    <img class="w-100" src="<?= asset("storage/$post->img") ?>" alt="foto del post {{ $post->title }}">
+                    @foreach ($post->imgs as $image)
+                        <img class="w-100" src="<?= asset("storage/$image->img") ?>" alt="foto del post {{ $post->title }}">
+                    @endforeach
                 </div><!-- /.card-body -->
             </div>
         </div>

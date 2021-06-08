@@ -7,6 +7,8 @@ use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
+use Illuminate\Support\Facades\Storage;
+
 use App\Tag;
 use App\Member;
 use App\Img;
@@ -98,7 +100,8 @@ class PostController extends Controller
             {
                 $new_img = new Img();
 
-                $new_img->img = $image;
+                $img_path = Storage::put('post-img', $image);
+                $new_img->img = $img_path;
 
                 $new_img->save();
 
