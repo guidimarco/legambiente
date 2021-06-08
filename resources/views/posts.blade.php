@@ -14,7 +14,13 @@
 
         <!-- Posts -->
         <div class="col-12">
-            Qui metto le card
+            <div class="container-fluid">
+                <div class="row">
+                    <div id="posts-wrapper">
+                        
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
