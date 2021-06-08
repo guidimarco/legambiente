@@ -32,3 +32,4 @@ Route::get('/', 'HomeController@index')->name('welcome');
 Route::get('/prossimi-eventi', 'HomeController@next')->name('next');
 Route::get('/contattaci', 'HomeController@contactUs')->name('contact-us');
 Route::get('/chi-siamo', 'HomeController@aboutUs')->name('about-us');
+Route::get('/posts', 'HomeController@posts')->name('posts');

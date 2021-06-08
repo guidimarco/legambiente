@@ -41,4 +41,9 @@ class HomeController extends Controller
     {
         return view('aboutUs');
     }
+
+    public function posts()
+    {
+        return view('posts');
+    }
 }
