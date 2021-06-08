@@ -21,7 +21,14 @@ $(document).ready(function() {
             console.log(data);
             let postsArray = data.results;
             postsArray.forEach((element) => {
-                let html = postCardTemplate({ title: element.title });
+                let postVariables = {
+                    'tags': 'prova',
+                    'created_at': element.created_at,
+                    'title': element.title,
+                    'author': 'niente',
+                    'body': element.body
+                };
+                let html = postCardTemplate(postVariables);
 
                 $('#posts-wrapper').append(html);
             });

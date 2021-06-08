@@ -40435,9 +40435,14 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
       console.log(data);
       var postsArray = data.results;
       postsArray.forEach(function (element) {
-        var html = postCardTemplate({
-          title: element.title
-        });
+        var postVariables = {
+          'tags': 'prova',
+          'created_at': element.created_at,
+          'title': element.title,
+          'author': 'niente',
+          'body': element.body
+        };
+        var html = postCardTemplate(postVariables);
         jquery__WEBPACK_IMPORTED_MODULE_0___default()('#posts-wrapper').append(html);
       });
     });
