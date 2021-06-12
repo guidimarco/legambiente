@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Post;
+use App\Img;
+
 class HomeController extends Controller
 {
     /**

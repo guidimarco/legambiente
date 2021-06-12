@@ -1,6 +1,6 @@
 <script id="post-card-template" type="text/x-handlebars-template">
 <li class="col-12 col-sm-6 col-md-4 col-xl-3">
-    <a id="post-@{{ id }}" href="#@{{ slug }}" class="post-card" style="background-image: url('https://picsum.photos/id/237/200/300');">
+    <a id="post-@{{ id }}" href="#@{{ slug }}" class="post-card" style="background-image: url('@{{ cover }}');">
         <div class="post-card-info">
             <div class="post-card-top">
                 <div class="tags">@{{{ tags }}}</div>

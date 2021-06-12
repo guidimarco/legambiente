@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// admin route
+// ADMIN
 Auth::routes(['register' => false]);
 Route::namespace('Admin') -> prefix('admin') -> name('admin.') -> middleware('auth') -> group(function() {
     // dashboard
@@ -27,7 +27,7 @@ Route::namespace('Admin') -> prefix('admin') -> name('admin.') -> middleware('au
     Route::resource('/tags', 'TagController');
 });
 
-// public routes
+// PUBLIC
 Route::get('/', 'HomeController@index')->name('welcome');
 Route::get('/prossimi-eventi', 'HomeController@next')->name('next');
 Route::get('/contattaci', 'HomeController@contactUs')->name('contact-us');

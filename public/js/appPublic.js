@@ -40432,13 +40432,15 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
     var postCardTemplateScript = document.getElementById('post-card-template').innerHTML;
     var postCardTemplate = Handlebars.compile(postCardTemplateScript); // get lasts posts
 
-    jquery__WEBPACK_IMPORTED_MODULE_0___default.a.get('api/get-last-posts', {}).done(function (data) {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default.a.get('api/get-posts', {}).done(function (data) {
       console.log(data);
       var postsArray = data.results;
       postsArray.forEach(function (element) {
         var date = new Date(element.created_at);
         var authorName = element.member != null ? element.member.name + " " + element.member.surname : "";
         var tagsHTML = "";
+        var coverImg = element.imgs.length !== 0 ? "storage/" + element.imgs[0].img : "";
+        console.log(coverImg);
         element.tags.forEach(function (tag) {
           tagsHTML += "<span class='primary-badge'>" + tag.name + "</span>";
         });
@@ -40449,7 +40451,8 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
           'title': element.title,
           'author': authorName,
           'body': element.body,
-          'slug': element.slug
+          'slug': element.slug,
+          'cover': coverImg
         };
         var html = postCardTemplate(postVariables);
         jquery__WEBPACK_IMPORTED_MODULE_0___default()('#posts-wrapper').append(html);

@@ -16,7 +16,7 @@ $(document).ready(function() {
         const postCardTemplate = Handlebars.compile(postCardTemplateScript);
 
         // get lasts posts
-        $.get('api/get-last-posts',
+        $.get('api/get-posts',
             {},
         ).done(function(data) {
             console.log(data);
@@ -26,6 +26,8 @@ $(document).ready(function() {
                 let date = new Date(element.created_at);
                 let authorName = (element.member != null) ? element.member.name + " " + element.member.surname : "";
                 let tagsHTML = "";
+                let coverImg = (element.imgs.length !== 0) ? "storage/" + element.imgs[0].img : "";
+                console.log(coverImg);
 
                 element.tags.forEach((tag) => {
                     tagsHTML += "<span class='primary-badge'>" + tag.name + "</span>";
@@ -38,7 +40,8 @@ $(document).ready(function() {
                     'title': element.title,
                     'author': authorName,
                     'body': element.body,
-                    'slug': element.slug
+                    'slug': element.slug,
+                    'cover': coverImg
                 };
                 let html = postCardTemplate(postVariables);
 
@@ -48,7 +51,8 @@ $(document).ready(function() {
             $('a[id^=post-]').click(function(event) {
                 event.preventDefault;
                 $(this).addClass('active');
+                
             });
-        });
+        });        
     }
 });
