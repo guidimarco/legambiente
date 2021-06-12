@@ -11378,3 +11378,31 @@ footer div #footer-title.legambiente {
   max-height: 100px;
 }
 
+#posts-page #posts-wrapper .post-card.active {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url(/img/jumbotron.jpg) !important;
+  margin-bottom: 0;
+  border-radius: 0;
+  z-index: 10;
+  cursor: unset;
+}
+
+#posts-page #posts-wrapper .post-card.active::after {
+  content: unset;
+}
+
+#posts-page #posts-wrapper .post-card.active .post-card-info {
+  border-radius: 0;
+}
+
+#posts-page #posts-wrapper .post-card.active .post-card-info .post-card-body {
+  display: block;
+  height: unset;
+  max-height: 40vh;
+  overflow: auto;
+}
+

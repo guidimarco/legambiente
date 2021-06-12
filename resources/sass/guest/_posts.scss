@@ -87,6 +87,37 @@
                     }
                 }
             }
+
+            &.active {
+                position: fixed;
+                top: 0; bottom: 0; left: 0; right: 0;
+                background-image: url(~/img/jumbotron.jpg)!important;
+                margin-bottom: 0;
+                border-radius: 0;
+                z-index: 10;
+                cursor: unset;
+
+                &::after {
+                    content: unset;
+                }
+
+                .post-card-info {
+                    border-radius: 0;
+    
+                    .post-card-top {
+                    }
+    
+                    .post-card-header {
+                    }
+    
+                    .post-card-body {
+                        display: block;
+                        height: unset;
+                        max-height: 40vh;
+                        overflow: auto;
+                    }
+                }
+            }
         }
     }
 

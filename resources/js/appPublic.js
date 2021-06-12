@@ -32,17 +32,23 @@ $(document).ready(function() {
                 });
 
                 let postVariables = {
+                    'id': element.id,
                     'tags': tagsHTML,
                     'created_at': date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear(),
                     'title': element.title,
                     'author': authorName,
-                    'body': element.body
+                    'body': element.body,
+                    'slug': element.slug
                 };
                 let html = postCardTemplate(postVariables);
 
                 $('#posts-wrapper').append(html);
             });
+
+            $('a[id^=post-]').click(function(event) {
+                event.preventDefault;
+                $(this).addClass('active');
+            });
         });
     }
-
 });

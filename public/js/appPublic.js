@@ -40443,14 +40443,20 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
           tagsHTML += "<span class='primary-badge'>" + tag.name + "</span>";
         });
         var postVariables = {
+          'id': element.id,
           'tags': tagsHTML,
           'created_at': date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear(),
           'title': element.title,
           'author': authorName,
-          'body': element.body
+          'body': element.body,
+          'slug': element.slug
         };
         var html = postCardTemplate(postVariables);
         jquery__WEBPACK_IMPORTED_MODULE_0___default()('#posts-wrapper').append(html);
+      });
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('a[id^=post-]').click(function (event) {
+        event.preventDefault;
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).addClass('active');
       });
     });
   }
