@@ -11389,6 +11389,10 @@ footer div #footer-title.legambiente {
   align-items: flex-start;
 }
 
+#posts-page #posts-wrapper .post-card .post-card-info .post-card-header .title {
+  margin-bottom: 14px;
+}
+
 #posts-page #posts-wrapper .post-card .post-card-info .post-card-body {
   height: 100px;
   max-height: 0px;

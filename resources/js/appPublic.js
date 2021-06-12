@@ -30,7 +30,6 @@ $(document).ready(function() {
         $.get('api/get-posts',
             {},
         ).done(function(data) {
-            console.log(data);
             let postsArray = data.results;
 
             postsArray.forEach((element) => {
@@ -38,7 +37,6 @@ $(document).ready(function() {
                 let authorName = (element.member != null) ? element.member.name + " " + element.member.surname : "";
                 let tagsHTML = "";
                 let coverImg = (element.imgs.length !== 0) ? "storage/" + element.imgs[0].img : "";
-                console.log(coverImg);
 
                 element.tags.forEach((tag) => {
                     tagsHTML += "<span class='primary-badge'>" + tag.name + "</span>";
@@ -62,9 +60,6 @@ $(document).ready(function() {
             $('[id^=post-]').click(function(event) {
                 event.preventDefault;
                 $(this).addClass('active');
-                console.log("get urel");
-                console.log(window.location.pathname);
-                console.log(location.hash);
             }).find('.fa-undo-alt').click(function(event) {
                 event.preventDefault;
                 return false;
@@ -73,9 +68,22 @@ $(document).ready(function() {
             $('.fa-undo-alt').click(function(event) {
                 event.preventDefault;
                 $(this).parent().parent().parent().removeClass('active');
-                // location.hash.replace('');
-                console.log(location.hash);
+                $(this).parent().parent().css('max-height', '90vh');
+                $(this).next().removeClass('fa-arrow-circle-up').addClass('fa-arrow-circle-down');
                 remove_hash_from_url();
+            });
+
+            $('.arrow-class').click(function() {
+                if ($(this).hasClass('fa-arrow-circle-down'))
+                {
+                    $(this).removeClass('fa-arrow-circle-down').addClass('fa-arrow-circle-up');
+                    $(this).parent().parent().css('max-height', '50px');
+                }
+                else
+                {
+                    $(this).removeClass('fa-arrow-circle-up').addClass('fa-arrow-circle-down');
+                    $(this).parent().parent().css('max-height', 'unset');
+                }
             });
         }); // end API get-posts
     }

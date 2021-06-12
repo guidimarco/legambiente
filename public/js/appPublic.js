@@ -40442,14 +40442,12 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
     var postCardTemplate = Handlebars.compile(postCardTemplateScript); // get-posts
 
     jquery__WEBPACK_IMPORTED_MODULE_0___default.a.get('api/get-posts', {}).done(function (data) {
-      console.log(data);
       var postsArray = data.results;
       postsArray.forEach(function (element) {
         var date = new Date(element.created_at);
         var authorName = element.member != null ? element.member.name + " " + element.member.surname : "";
         var tagsHTML = "";
         var coverImg = element.imgs.length !== 0 ? "storage/" + element.imgs[0].img : "";
-        console.log(coverImg);
         element.tags.forEach(function (tag) {
           tagsHTML += "<span class='primary-badge'>" + tag.name + "</span>";
         });
@@ -40469,19 +40467,25 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
       jquery__WEBPACK_IMPORTED_MODULE_0___default()('[id^=post-]').click(function (event) {
         event.preventDefault;
         jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).addClass('active');
-        console.log("get urel");
-        console.log(window.location.pathname);
-        console.log(location.hash);
       }).find('.fa-undo-alt').click(function (event) {
         event.preventDefault;
         return false;
       });
       jquery__WEBPACK_IMPORTED_MODULE_0___default()('.fa-undo-alt').click(function (event) {
         event.preventDefault;
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parent().parent().parent().removeClass('active'); // location.hash.replace('');
-
-        console.log(location.hash);
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parent().parent().parent().removeClass('active');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parent().parent().css('max-height', '90vh');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).next().removeClass('fa-arrow-circle-up').addClass('fa-arrow-circle-down');
         remove_hash_from_url();
+      });
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.arrow-class').click(function () {
+        if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).hasClass('fa-arrow-circle-down')) {
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).removeClass('fa-arrow-circle-down').addClass('fa-arrow-circle-up');
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parent().parent().css('max-height', '50px');
+        } else {
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).removeClass('fa-arrow-circle-up').addClass('fa-arrow-circle-down');
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parent().parent().css('max-height', 'unset');
+        }
       });
     }); // end API get-posts
   }

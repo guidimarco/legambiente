@@ -5,7 +5,7 @@
             <!-- Buttons display when card is active -->
             <div class="active-card-buttons">
                 <i class="fas fa-undo-alt primary-buttons"></i>
-                <i class="fas fa-arrows-alt-v primary-buttons"></i>
+                <i class="fas fa-arrow-circle-down primary-buttons arrow-class"></i>
             </div>
 
             <div class="post-card-top">
