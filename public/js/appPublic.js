@@ -40425,12 +40425,21 @@ window.$ = __webpack_provided_window_dot_jQuery = jquery__WEBPACK_IMPORTED_MODUL
 
 var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebars/dist/cjs/handlebars.js");
 
+function remove_hash_from_url() {
+  var uri = window.location.toString();
+
+  if (uri.indexOf("#") > 0) {
+    var clean_uri = uri.substring(0, uri.indexOf("#"));
+    window.history.replaceState({}, document.title, clean_uri);
+  }
+}
+
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
   var postsWrapper = document.getElementById("posts-wrapper"); // Posts public-page
 
   if (postsWrapper) {
     var postCardTemplateScript = document.getElementById('post-card-template').innerHTML;
-    var postCardTemplate = Handlebars.compile(postCardTemplateScript); // get lasts posts
+    var postCardTemplate = Handlebars.compile(postCardTemplateScript); // get-posts
 
     jquery__WEBPACK_IMPORTED_MODULE_0___default.a.get('api/get-posts', {}).done(function (data) {
       console.log(data);
@@ -40457,11 +40466,24 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
         var html = postCardTemplate(postVariables);
         jquery__WEBPACK_IMPORTED_MODULE_0___default()('#posts-wrapper').append(html);
       });
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()('a[id^=post-]').click(function (event) {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('[id^=post-]').click(function (event) {
         event.preventDefault;
         jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).addClass('active');
+        console.log("get urel");
+        console.log(window.location.pathname);
+        console.log(location.hash);
+      }).find('.fa-undo-alt').click(function (event) {
+        event.preventDefault;
+        return false;
       });
-    });
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.fa-undo-alt').click(function (event) {
+        event.preventDefault;
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parent().parent().parent().removeClass('active'); // location.hash.replace('');
+
+        console.log(location.hash);
+        remove_hash_from_url();
+      });
+    }); // end API get-posts
   }
 });
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))

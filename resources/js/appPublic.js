@@ -5,6 +5,17 @@ window.$ = window.jQuery = $;
 
 const Handlebars = require("handlebars");
 
+function remove_hash_from_url() {
+    var uri = window.location.toString();
+
+    if (uri.indexOf("#") > 0) {
+        var clean_uri = uri.substring(0, uri.indexOf("#"));
+
+        window.history.replaceState({}, document.title, clean_uri);
+    }
+}
+
+
 $(document).ready(function() {
 
     var postsWrapper = document.getElementById("posts-wrapper");
@@ -15,7 +26,7 @@ $(document).ready(function() {
         const postCardTemplateScript = document.getElementById('post-card-template').innerHTML;
         const postCardTemplate = Handlebars.compile(postCardTemplateScript);
 
-        // get lasts posts
+        // get-posts
         $.get('api/get-posts',
             {},
         ).done(function(data) {
@@ -48,11 +59,24 @@ $(document).ready(function() {
                 $('#posts-wrapper').append(html);
             });
 
-            $('a[id^=post-]').click(function(event) {
+            $('[id^=post-]').click(function(event) {
                 event.preventDefault;
                 $(this).addClass('active');
-                
+                console.log("get urel");
+                console.log(window.location.pathname);
+                console.log(location.hash);
+            }).find('.fa-undo-alt').click(function(event) {
+                event.preventDefault;
+                return false;
             });
-        });        
+        
+            $('.fa-undo-alt').click(function(event) {
+                event.preventDefault;
+                $(this).parent().parent().parent().removeClass('active');
+                // location.hash.replace('');
+                console.log(location.hash);
+                remove_hash_from_url();
+            });
+        }); // end API get-posts
     }
 });

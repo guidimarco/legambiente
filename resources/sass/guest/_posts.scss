@@ -42,7 +42,7 @@
             .post-card-info {
                 position: absolute;
                 bottom: 0; left: 0; right: 0;
-                background-color: rgba(255,255,255, 0.8);
+                background-color: rgba(255,255,255, 1);
                 border-radius: 0 0 12px 12px;
                 padding: 0 16px;
 
@@ -78,6 +78,10 @@
                     overflow: hidden;
                     padding: 4px 0;
                 }
+
+                .active-card-buttons {
+                    display: none;
+                }
             }
 
             &:hover {
@@ -95,26 +99,52 @@
                 margin-bottom: 0;
                 border-radius: 0;
                 z-index: 10;
-                cursor: unset;
+                cursor: context-menu;
+
+                .title {
+                    font-family: 'Cabin Sketch', cursive;
+                }
 
                 &::after {
                     content: unset;
                 }
 
                 .post-card-info {
-                    border-radius: 0;
+                    display: flex;
+                    flex-direction: column;
+                    border-radius: 12px 12px 0 0;
+                    padding: 50px 25px;
+                    max-height: 90vh;
     
                     .post-card-top {
                     }
     
                     .post-card-header {
+                        order: -1;
+                        h6 {
+                            font-size: 26px;
+                            align-self: center;
+                            font-weight: normal;
+                        }
                     }
     
                     .post-card-body {
                         display: block;
                         height: unset;
-                        max-height: 40vh;
+                        max-height: unset;
                         overflow: auto;
+                    }
+
+                    .active-card-buttons {
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        background-color: rgba(255,255,255, 1);
+                        padding: 4px;
+                        border-radius: 29px;
+                        font-size: 13px;
                     }
                 }
             }
