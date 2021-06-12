@@ -11216,6 +11216,7 @@ footer div #footer-title.legambiente {
 
 #next-page #carouselWrapper .carousel-inner {
   height: 100%;
+  border-radius: 12px;
 }
 
 #next-page #carouselWrapper .carousel-inner .carousel-item {
@@ -11266,7 +11267,7 @@ footer div #footer-title.legambiente {
 
 #next-page #carouselWrapper .carousel-inner .carousel-item::before {
   content: "";
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.4);
   position: absolute;
   top: 0;
   bottom: 0;

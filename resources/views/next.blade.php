@@ -20,7 +20,7 @@
                     <div class="carousel-item active">
                         <img class="d-block w-100" src="img/1.jpeg" alt="First slide">
                         <div class="carousel-caption d-none d-md-block">
-                            <h5 class="text-uppercase">27 Maggio 18:00 --> 20:00</h5>
+                            <span class="text-uppercase primary-badge mb-2">27 Maggio 18:00 --> 20:00</span>
                             <h6 class="title text-uppercase">Workshop su ambiente riuso ed economia circolare</h6>
                             <p class="text-uppercase">Piazza "Aldo Moro"</p>
                             <!-- icons -->
@@ -33,8 +33,8 @@
                     <div class="carousel-item">
                         <img class="d-block w-100" src="img/2.jpeg" alt="Second slide">
                         <div class="carousel-caption d-none d-md-block">
-                            <h5 class="text-uppercase">29 Maggio</h5>
-                            <h6 class="text-uppercase">Il sabato dell'ambiente</h6>
+                        <span class="text-uppercase primary-badge mb-2">27 Maggio 18:00 --> 20:00</span>
+                            <h6 class="title text-uppercase">Il sabato dell'ambiente</h6>
                             <!-- icons -->
                             <div class="carousel-icons">
                                 <a href="img/2.jpeg" alt="scarica l'evento" download><i class="fas fa-file-download"></i></a>
@@ -45,7 +45,7 @@
                     <div class="carousel-item">
                         <img class="d-block w-100" src="img/3.jpeg" alt="Third slide">
                         <div class="carousel-caption d-none d-md-block">
-                            <h5 class="text-uppercase">29 Maggio</h5>
+                        <span class="title text-uppercase primary-badge mb-2">27 Maggio 18:00 --> 20:00</span>
                             <h6 class="text-uppercase">Smart School</h6>
                             <p class="text-uppercase">Fondazione Campus</p>
                             <!-- icons -->
