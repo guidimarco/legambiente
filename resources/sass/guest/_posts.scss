@@ -1,19 +1,14 @@
 #posts-page {
-    max-height: calc(100vh - 150px);
+    height: calc(100vh - 150px);
     overflow: auto;
 
     // Filter
     
-
     // Posts
     & > .row {
-        height: 100%;
-        & > .col-12 {
-            height: 100%;
-            & > .container-fluid {
-                height: 100%;
-            }
-        }
+        flex-direction: column;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
     }
 
     #posts-wrapper {
@@ -79,7 +74,7 @@
                 .post-card-body {
                     height: 100px;
                     max-height: 0px;
-                    transition: max-height 2s;
+                    transition: max-height 1s;
                     overflow: hidden;
                     padding: 4px 0;
                 }
@@ -96,12 +91,3 @@
     }
 
 }
-
-// @media screen and (min-width: $sm-min) {
-//     #next-page {
-//         #carouselWrapper {
-//             width: 60vw;
-//             margin: auto;
-//         }
-//     }
-// }

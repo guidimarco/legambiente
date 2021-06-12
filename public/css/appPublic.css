@@ -11014,6 +11014,19 @@ body {
   padding: 2px 4px;
   margin-right: 4px;
   border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: 17px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.sub-title {
+  font-size: 14px;
+  text-transform: uppercase;
+  margin: 0;
 }
 
 #main-section {
@@ -11288,24 +11301,14 @@ footer div #footer-title.legambiente {
 }
 
 #posts-page {
-  max-height: calc(100vh - 150px);
+  height: calc(100vh - 150px);
   overflow: auto;
 }
 
 #posts-page > .row {
-  height: 100%;
-}
-
-#posts-page > .row > .col-12 {
-  height: 100%;
-}
-
-#posts-page > .row > .col-12 > .container-fluid,
-#posts-page > .row > .col-12 > .container-sm,
-#posts-page > .row > .col-12 > .container-md,
-#posts-page > .row > .col-12 > .container-lg,
-#posts-page > .row > .col-12 > .container-xl {
-  height: 100%;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
 }
 
 #posts-page #posts-wrapper {
@@ -11366,7 +11369,7 @@ footer div #footer-title.legambiente {
 #posts-page #posts-wrapper .post-card .post-card-info .post-card-body {
   height: 100px;
   max-height: 0px;
-  transition: max-height 2s;
+  transition: max-height 1s;
   overflow: hidden;
   padding: 4px 0;
 }

@@ -3,16 +3,16 @@
     <a href="" class="post-card" style="background-image: url('https://picsum.photos/id/237/200/300');">
         <div class="post-card-info">
             <div class="post-card-top">
-                <div class="tags text-uppercase">@{{{ tags }}}</div>
-                <div class="date text-uppercase">@{{ created_at }}</div>
+                <div class="tags">@{{{ tags }}}</div>
+                <div class="date sub-title">@{{ created_at }}</div>
             </div>
 
             <div class="post-card-header">
-                <h6 class="title text-uppercase">
+                <h6 class="title">
                     @{{ title }}
                 </h6>
 
-                <p class="author text-uppercase">
+                <p class="author sub-title">
                     Autore: @{{ author }}                   
                 </p>
             </div>

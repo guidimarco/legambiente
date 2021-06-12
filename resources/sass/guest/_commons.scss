@@ -65,4 +65,17 @@ body {
     padding: 2px 4px;
     margin-right: 4px;
     border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.title {
+    font-size: 17px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.sub-title {
+    font-size: 14px;
+    text-transform: uppercase;
+    margin: 0;
 }

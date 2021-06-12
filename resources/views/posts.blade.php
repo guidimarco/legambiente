@@ -10,9 +10,7 @@
         </div>
 
         <!-- Filter -->
-        <div class="col-12">
-            Qui filtro tutto
-        </div>
+        <div class="col-12"></div>
 
         <!-- Posts -->
         <div class="col-12">
