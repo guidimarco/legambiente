@@ -21,7 +21,7 @@
                         <img class="d-block w-100" src="img/1.jpeg" alt="First slide">
                         <div class="carousel-caption d-none d-md-block">
                             <h5 class="text-uppercase">27 Maggio 18:00 --> 20:00</h5>
-                            <h6 class="text-uppercase">Workshop su ambiente riuso ed economia circolare</h6>
+                            <h6 class="title text-uppercase">Workshop su ambiente riuso ed economia circolare</h6>
                             <p class="text-uppercase">Piazza "Aldo Moro"</p>
                             <!-- icons -->
                             <div class="carousel-icons">

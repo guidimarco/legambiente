@@ -1,8 +1,24 @@
 #posts-page {
+    max-height: calc(100vh - 150px);
+    overflow: auto;
+
     // Filter
+    
 
     // Posts
+    & > .row {
+        height: 100%;
+        & > .col-12 {
+            height: 100%;
+            & > .container-fluid {
+                height: 100%;
+            }
+        }
+    }
+
     #posts-wrapper {
+        height: 100%;
+        overflow: auto;
         .post-card {
             position: relative;
             display: block;
@@ -10,6 +26,7 @@
             background-position: center;
             background-size: cover;
             border-radius: 12px;
+            margin-bottom: 30px;
 
             &::after {
                 content: '';

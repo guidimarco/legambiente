@@ -40430,17 +40430,23 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
 
   if (postsWrapper) {
     var postCardTemplateScript = document.getElementById('post-card-template').innerHTML;
-    var postCardTemplate = Handlebars.compile(postCardTemplateScript);
+    var postCardTemplate = Handlebars.compile(postCardTemplateScript); // get lasts posts
+
     jquery__WEBPACK_IMPORTED_MODULE_0___default.a.get('api/get-last-posts', {}).done(function (data) {
       console.log(data);
       var postsArray = data.results;
       postsArray.forEach(function (element) {
         var date = new Date(element.created_at);
+        var authorName = element.member != null ? element.member.name + " " + element.member.surname : "";
+        var tagsHTML = "";
+        element.tags.forEach(function (tag) {
+          tagsHTML += "<span class='primary-badge'>" + tag.name + "</span>";
+        });
         var postVariables = {
-          'tags': 'prova',
+          'tags': tagsHTML,
           'created_at': date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear(),
           'title': element.title,
-          'author': 'niente',
+          'author': authorName,
           'body': element.body
         };
         var html = postCardTemplate(postVariables);

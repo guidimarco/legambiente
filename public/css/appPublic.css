@@ -11006,8 +11006,20 @@ body {
   color: #20c997;
 }
 
+.primary-badge {
+  background-color: #008E4F;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px 4px;
+  margin-right: 4px;
+  border-radius: 4px;
+}
+
 #main-section {
   min-height: 100vh;
+  padding-top: 100px;
+  padding-bottom: 50px;
   background-image: url(/img/jumbotron.jpg);
   background-position: center;
   background-size: cover;
@@ -11275,6 +11287,32 @@ footer div #footer-title.legambiente {
   font-family: "Cabin Sketch", cursive;
 }
 
+#posts-page {
+  max-height: calc(100vh - 150px);
+  overflow: auto;
+}
+
+#posts-page > .row {
+  height: 100%;
+}
+
+#posts-page > .row > .col-12 {
+  height: 100%;
+}
+
+#posts-page > .row > .col-12 > .container-fluid,
+#posts-page > .row > .col-12 > .container-sm,
+#posts-page > .row > .col-12 > .container-md,
+#posts-page > .row > .col-12 > .container-lg,
+#posts-page > .row > .col-12 > .container-xl {
+  height: 100%;
+}
+
+#posts-page #posts-wrapper {
+  height: 100%;
+  overflow: auto;
+}
+
 #posts-page #posts-wrapper .post-card {
   position: relative;
   display: block;
@@ -11282,6 +11320,7 @@ footer div #footer-title.legambiente {
   background-position: center;
   background-size: cover;
   border-radius: 12px;
+  margin-bottom: 30px;
 }
 
 #posts-page #posts-wrapper .post-card::after {
