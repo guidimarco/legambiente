@@ -11051,6 +11051,30 @@ body {
   margin: 0;
 }
 
+.tooltip-ref {
+  position: relative;
+}
+
+.tooltip-ref .tooltip-text {
+  visibility: hidden;
+  width: 120px;
+  background-color: #008E4F;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  /* Position the tooltip */
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.tooltip-ref:hover .tooltip-text {
+  visibility: visible;
+}
+
 #main-section {
   min-height: 100vh;
   padding-top: 100px;
@@ -11409,6 +11433,10 @@ footer div #footer-title.legambiente {
   max-height: 100px;
 }
 
+#posts-page #posts-wrapper .post-card #carouselPostWrapper {
+  display: none;
+}
+
 #posts-page #posts-wrapper .post-card.active {
   position: fixed;
   top: 0;
@@ -11465,5 +11493,9 @@ footer div #footer-title.legambiente {
   padding: 4px;
   border-radius: 29px;
   font-size: 13px;
+}
+
+#posts-page #posts-wrapper .post-card.active #carouselPostWrapper {
+  display: block;
 }
 
