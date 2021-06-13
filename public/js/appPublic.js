@@ -40447,9 +40447,13 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
         var date = new Date(element.created_at);
         var authorName = element.member != null ? element.member.name + " " + element.member.surname : "";
         var tagsHTML = "";
-        var coverImg = element.imgs.length !== 0 ? "storage/" + element.imgs[0].img : "";
+        var images = [];
         element.tags.forEach(function (tag) {
           tagsHTML += "<span class='primary-badge'>" + tag.name + "</span>";
+        });
+        element.imgs.forEach(function (image, index) {
+          var imgPath = "storage/" + image.img;
+          images.push(imgPath);
         });
         var postVariables = {
           'id': element.id,
@@ -40459,7 +40463,7 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
           'author': authorName,
           'body': element.body,
           'slug': element.slug,
-          'cover': coverImg
+          'images': images
         };
         var html = postCardTemplate(postVariables);
         jquery__WEBPACK_IMPORTED_MODULE_0___default()('#posts-wrapper').append(html);
@@ -40482,6 +40486,7 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
         if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).hasClass('fa-arrow-circle-down')) {
           jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).removeClass('fa-arrow-circle-down').addClass('fa-arrow-circle-up');
           jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parent().parent().parent().addClass('carousel-visible');
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parent().parent().parent().find('.carousel-item:first-child').addClass('active');
         } else {
           jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).removeClass('fa-arrow-circle-up').addClass('fa-arrow-circle-down');
           jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parent().parent().parent().removeClass('carousel-visible');

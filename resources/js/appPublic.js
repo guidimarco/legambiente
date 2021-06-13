@@ -35,10 +35,15 @@ $(document).ready(function() {
                 let date = new Date(element.created_at);
                 let authorName = (element.member != null) ? element.member.name + " " + element.member.surname : "";
                 let tagsHTML = "";
-                let coverImg = (element.imgs.length !== 0) ? "storage/" + element.imgs[0].img : "";
+                let images = [];
 
                 element.tags.forEach((tag) => {
                     tagsHTML += "<span class='primary-badge'>" + tag.name + "</span>";
+                });
+
+                element.imgs.forEach((image, index) => {
+                    let imgPath = "storage/" + image.img;
+                    images.push(imgPath);
                 });
 
                 let postVariables = {
@@ -49,7 +54,7 @@ $(document).ready(function() {
                     'author': authorName,
                     'body': element.body,
                     'slug': element.slug,
-                    'cover': coverImg
+                    'images': images
                 };
                 let html = postCardTemplate(postVariables);
 
@@ -77,6 +82,7 @@ $(document).ready(function() {
                 {
                     $(this).removeClass('fa-arrow-circle-down').addClass('fa-arrow-circle-up');
                     $(this).parent().parent().parent().addClass('carousel-visible');
+                    $(this).parent().parent().parent().find('.carousel-item:first-child').addClass('active');
                 }
                 else
                 {
