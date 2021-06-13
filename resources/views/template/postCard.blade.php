@@ -1,7 +1,7 @@
 <script id="post-card-template" type="text/x-handlebars-template">
 <li class="col-12 col-sm-6 col-md-4 col-xl-3">
     <div id="slug-@{{ slug }}" class="post-card" style="background-image: url('@{{ images.[0] }}');">
-        @{{#if images}}
+        @{{#if are_images}}
         <!-- Img Carousel -->
         <div id="carouselContainer" class="container">
             <div id="carouselWrapper" class="carousel slide" data-ride="carousel">
@@ -13,6 +13,7 @@
                         </div>
                     @{{/each}}
                 </div>
+                @{{#if are_more_imgs}}
                 <!-- Prev button -->
                 <a class="carousel-control-prev" href="#carouselWrapper" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -23,6 +24,7 @@
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                 </a>
+                @{{/if}}
             </div>
         </div>
         @{{/if}}
@@ -34,7 +36,7 @@
                 <i class="fas fa-undo-alt primary-buttons tooltip-ref">
                     <span class="tooltip-text text-uppercase">Torna indietro</span>
                 </i>
-                @{{#if images}}
+                @{{#if are_images}}
                 <i class="fas fa-arrow-circle-down primary-buttons arrow-class tooltip-ref">
                     <span class="tooltip-text text-uppercase">Guarda le foto</span>
                 </i>

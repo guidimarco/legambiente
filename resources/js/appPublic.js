@@ -38,6 +38,8 @@ $(document).ready(function() {
                 let authorName = (element.member != null) ? element.member.name + " " + element.member.surname : "";
                 let tagsHTML = "";
                 let images = [];
+                let areImages = true;
+                let areMoreImgs = true;
 
                 element.tags.forEach((tag) => {
                     tagsHTML += "<span class='primary-badge'>" + tag.name + "</span>";
@@ -47,6 +49,15 @@ $(document).ready(function() {
                     let imgPath = "storage/" + image.img;
                     images.push(imgPath);
                 });
+                if (images.length === 0)
+                {
+                    images.push("img/notfound.jpeg");
+                    areImages = false;
+                }
+                else if (images.length == 1)
+                {
+                    areMoreImgs = false;
+                }
 
                 allSlugs.push(element.slug);
 
@@ -58,7 +69,9 @@ $(document).ready(function() {
                     'author': authorName,
                     'body': element.body,
                     'slug': element.slug,
-                    'images': images
+                    'images': images,
+                    'are_images': areImages,
+                    'are_more_imgs': areMoreImgs
                 };
                 let html = postCardTemplate(postVariables);
 

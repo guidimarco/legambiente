@@ -40449,6 +40449,8 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
         var authorName = element.member != null ? element.member.name + " " + element.member.surname : "";
         var tagsHTML = "";
         var images = [];
+        var areImages = true;
+        var areMoreImgs = true;
         element.tags.forEach(function (tag) {
           tagsHTML += "<span class='primary-badge'>" + tag.name + "</span>";
         });
@@ -40456,6 +40458,14 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
           var imgPath = "storage/" + image.img;
           images.push(imgPath);
         });
+
+        if (images.length === 0) {
+          images.push("img/notfound.jpeg");
+          areImages = false;
+        } else if (images.length == 1) {
+          areMoreImgs = false;
+        }
+
         allSlugs.push(element.slug);
         var postVariables = {
           'id': element.id,
@@ -40465,7 +40475,9 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
           'author': authorName,
           'body': element.body,
           'slug': element.slug,
-          'images': images
+          'images': images,
+          'are_images': areImages,
+          'are_more_imgs': areMoreImgs
         };
         var html = postCardTemplate(postVariables);
         jquery__WEBPACK_IMPORTED_MODULE_0___default()('#posts-wrapper').append(html);
