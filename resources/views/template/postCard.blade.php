@@ -31,9 +31,13 @@
         <div class="container post-card-info">
             <!-- Buttons display when card is active -->
             <div class="active-card-buttons">
-                <i class="fas fa-undo-alt primary-buttons"></i>
+                <i class="fas fa-undo-alt primary-buttons tooltip-ref">
+                    <span class="tooltip-text text-uppercase">Torna indietro</span>
+                </i>
                 @{{#if images}}
-                <i class="fas fa-arrow-circle-down primary-buttons arrow-class"></i>
+                <i class="fas fa-arrow-circle-down primary-buttons arrow-class tooltip-ref">
+                    <span class="tooltip-text text-uppercase">Guarda le foto</span>
+                </i>
                 @{{/if}}
             </div>
 
@@ -48,7 +52,13 @@
                 </h6>
 
                 <p class="author sub-title">
-                    Autore: @{{ author }}                   
+                    @{{#if author}}
+                        Autore: @{{ author }}
+                    @{{else}}
+                        Autore: &#129335;
+                    @{{/if}}
+                
+                    
                 </p>
             </div>
 

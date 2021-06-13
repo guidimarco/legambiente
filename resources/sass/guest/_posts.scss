@@ -2,6 +2,14 @@
     height: calc(100vh - 150px);
     overflow: auto;
 
+    // OVERWRITE COMMON RULES
+    .tooltip-ref {
+        .tooltip-text {
+            /* Position the tooltip */
+            top: 60px;
+        }
+    }
+
     // Filter
     
     // Posts
