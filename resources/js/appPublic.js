@@ -25,6 +25,8 @@ $(document).ready(function() {
         const postCardTemplateScript = document.getElementById('post-card-template').innerHTML;
         const postCardTemplate = Handlebars.compile(postCardTemplateScript);
 
+        let allSlugs = [];
+
         // get-posts
         $.get('api/get-posts',
             {},
@@ -46,6 +48,8 @@ $(document).ready(function() {
                     images.push(imgPath);
                 });
 
+                allSlugs.push(element.slug);
+
                 let postVariables = {
                     'id': element.id,
                     'tags': tagsHTML,
@@ -60,10 +64,14 @@ $(document).ready(function() {
 
                 $('#posts-wrapper').append(html);
             });
+            
 
-            $('[id^=post-]').click(function(event) {
+            $('[id^=slug-]').click(function(event) {
                 event.preventDefault;
                 $(this).addClass('active');
+                let thisId = $(this).attr('id');
+                let thisSlug = thisId.replace('slug-', '');
+                window.location.hash = thisSlug;
             }).find('.fa-undo-alt').click(function(event) {
                 event.preventDefault;
                 return false;
@@ -90,6 +98,19 @@ $(document).ready(function() {
                     $(this).parent().parent().parent().removeClass('carousel-visible');
                 }
             });
+
+            $(window).on('hashchange', function(event) {
+                let newHash = window.location.hash;
+
+                if (!newHash)
+                {
+                    $('[id^=slug-]').removeClass('active');
+                }
+                else if (allSlugs.includes(newHash.replace('#', '')))
+                {
+                    $(newHash).addClass('active');
+                }
+            } );
         }); // end API get-posts
     }
 });

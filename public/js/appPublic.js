@@ -40439,7 +40439,8 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
 
   if (postsWrapper) {
     var postCardTemplateScript = document.getElementById('post-card-template').innerHTML;
-    var postCardTemplate = Handlebars.compile(postCardTemplateScript); // get-posts
+    var postCardTemplate = Handlebars.compile(postCardTemplateScript);
+    var allSlugs = []; // get-posts
 
     jquery__WEBPACK_IMPORTED_MODULE_0___default.a.get('api/get-posts', {}).done(function (data) {
       var postsArray = data.results;
@@ -40455,6 +40456,7 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
           var imgPath = "storage/" + image.img;
           images.push(imgPath);
         });
+        allSlugs.push(element.slug);
         var postVariables = {
           'id': element.id,
           'tags': tagsHTML,
@@ -40468,9 +40470,12 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
         var html = postCardTemplate(postVariables);
         jquery__WEBPACK_IMPORTED_MODULE_0___default()('#posts-wrapper').append(html);
       });
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()('[id^=post-]').click(function (event) {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('[id^=slug-]').click(function (event) {
         event.preventDefault;
         jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).addClass('active');
+        var thisId = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr('id');
+        var thisSlug = thisId.replace('slug-', '');
+        window.location.hash = thisSlug;
       }).find('.fa-undo-alt').click(function (event) {
         event.preventDefault;
         return false;
@@ -40490,6 +40495,15 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
         } else {
           jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).removeClass('fa-arrow-circle-up').addClass('fa-arrow-circle-down');
           jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parent().parent().parent().removeClass('carousel-visible');
+        }
+      });
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on('hashchange', function (event) {
+        var newHash = window.location.hash;
+
+        if (!newHash) {
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('[id^=slug-]').removeClass('active');
+        } else if (allSlugs.includes(newHash.replace('#', ''))) {
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(newHash).addClass('active');
         }
       });
     }); // end API get-posts

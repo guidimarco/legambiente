@@ -1,6 +1,6 @@
 <script id="post-card-template" type="text/x-handlebars-template">
 <li class="col-12 col-sm-6 col-md-4 col-xl-3">
-    <div id="post-@{{ id }}" href="#@{{ slug }}" class="post-card" style="background-image: url('@{{ images.[0] }}');">
+    <div id="slug-@{{ slug }}" class="post-card" style="background-image: url('@{{ images.[0] }}');">
         @{{#if images}}
         <!-- Img Carousel -->
         <div id="carouselContainer" class="container">
