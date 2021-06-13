@@ -1,5 +1,7 @@
 @extends('layouts.guest.app')
 
+@section('title', 'Legambiente Capannori | Posts')
+
 @include('template.postCard')
 
 @section('content')
