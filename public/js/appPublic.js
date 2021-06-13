@@ -40474,17 +40474,17 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
       jquery__WEBPACK_IMPORTED_MODULE_0___default()('.fa-undo-alt').click(function (event) {
         event.preventDefault;
         jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parent().parent().parent().removeClass('active');
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parent().parent().css('max-height', '90vh');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parent().parent().parent().removeClass('carousel-visible');
         jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).next().removeClass('fa-arrow-circle-up').addClass('fa-arrow-circle-down');
         remove_hash_from_url();
       });
       jquery__WEBPACK_IMPORTED_MODULE_0___default()('.arrow-class').click(function () {
         if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).hasClass('fa-arrow-circle-down')) {
           jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).removeClass('fa-arrow-circle-down').addClass('fa-arrow-circle-up');
-          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parent().parent().css('max-height', '50px');
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parent().parent().parent().addClass('carousel-visible');
         } else {
           jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).removeClass('fa-arrow-circle-up').addClass('fa-arrow-circle-down');
-          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parent().parent().css('max-height', 'unset');
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parent().parent().parent().removeClass('carousel-visible');
         }
       });
     }); // end API get-posts

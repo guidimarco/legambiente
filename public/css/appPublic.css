@@ -11396,6 +11396,7 @@ footer div #footer-title.legambiente {
   background-color: white;
   border-radius: 0 0 12px 12px;
   padding: 0 16px;
+  transition: height 1s;
 }
 
 #posts-page #posts-wrapper .post-card .post-card-info .post-card-top {
@@ -11463,7 +11464,7 @@ footer div #footer-title.legambiente {
   flex-direction: column;
   border-radius: 12px 12px 0 0;
   padding: 50px 25px;
-  max-height: 90vh;
+  height: 90vh;
 }
 
 #posts-page #posts-wrapper .post-card.active .post-card-info .post-card-header {
@@ -11495,7 +11496,11 @@ footer div #footer-title.legambiente {
   font-size: 13px;
 }
 
-#posts-page #posts-wrapper .post-card.active #carouselPostWrapper {
+#posts-page #posts-wrapper .post-card.active.carousel-visible .post-card-info {
+  height: 50px;
+}
+
+#posts-page #posts-wrapper .post-card.active.carousel-visible .post-card-info #carouselPostWrapper {
   display: block;
 }
 

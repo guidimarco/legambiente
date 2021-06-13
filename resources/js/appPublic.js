@@ -68,7 +68,7 @@ $(document).ready(function() {
             $('.fa-undo-alt').click(function(event) {
                 event.preventDefault;
                 $(this).parent().parent().parent().removeClass('active');
-                $(this).parent().parent().css('max-height', '90vh');
+                $(this).parent().parent().parent().removeClass('carousel-visible');
                 $(this).next().removeClass('fa-arrow-circle-up').addClass('fa-arrow-circle-down');
                 remove_hash_from_url();
             });
@@ -77,12 +77,12 @@ $(document).ready(function() {
                 if ($(this).hasClass('fa-arrow-circle-down'))
                 {
                     $(this).removeClass('fa-arrow-circle-down').addClass('fa-arrow-circle-up');
-                    $(this).parent().parent().css('max-height', '50px');
+                    $(this).parent().parent().parent().addClass('carousel-visible');
                 }
                 else
                 {
                     $(this).removeClass('fa-arrow-circle-up').addClass('fa-arrow-circle-down');
-                    $(this).parent().parent().css('max-height', 'unset');
+                    $(this).parent().parent().parent().removeClass('carousel-visible');
                 }
             });
         }); // end API get-posts
