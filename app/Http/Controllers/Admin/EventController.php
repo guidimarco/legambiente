@@ -75,9 +75,16 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Event $event)
     {
-        //
+        if ($event)
+        {
+            $data = [
+                'event' => $event
+            ];
+            return view('admin.events.show', $data);
+        }
+        abort(404);
     }
 
     /**

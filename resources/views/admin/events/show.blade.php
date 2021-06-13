@@ -6,14 +6,14 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Posts</h1>
+                <h1>Events</h1>
             </div>
 
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('admin.post.index') }}">Posts</a></li>
-                    <li class="breadcrumb-item">{{ $post->title }}</li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.event.index') }}">Events</a></li>
+                    <li class="breadcrumb-item">{{ $event->title }}</li>
                 </ol>
             </div>
         </div>
@@ -23,10 +23,10 @@
 <!-- Main content -->
 <section class="content">
     <div class="row">
-        <div class="@if (isset($post->imgs)) col-6 @else col-12 @endif">
+        <div class ="col-6">
             <div class="card card-primary">
                 <div class="card-header bg-light">
-                    <h3 class="card-title">Post info</h3>
+                    <h3 class="card-title">Event info</h3>
                 </div><!-- /.card-header -->
 
                 <!-- start -->
@@ -34,53 +34,36 @@
                     <!-- Title -->
                     <div class="form-group">
                         <label for="title">Titolo</label>
-                        <input type="text" id="title" class="form-control" name="title" value="{{ $post->title }}" readonly>
+                        <input type="text" id="title" class="form-control" name="title" value="{{ $event->title }}" readonly>
                     </div>
 
-                    <!-- Body -->
+                    <!-- Location -->
                     <div class="form-group">
-                        <label for="body">Articolo</label>
-                        <textarea id="body" class="form-control" rows="4" name="body" readonly>{{ $post->body }}</textarea>
+                        <label for="location">Titolo</label>
+                        <input type="text" id="location" class="form-control" name="location" value="{{ $event->title }}" readonly>
                     </div>
 
-                    <!-- Tags -->
+                    <!-- Date dd/mm/yyyy -->
                     <div class="form-group">
-                        <label>Tags</label>
-                        @if ($post->tags->count() > 0)
-                            @foreach ($post->tags as $tag)
-                                <div class="form-check">
-                                    <input name="tags[]" class="form-check-input" type="checkbox" value="{{ $tag->id }}" onclick="return false;" checked>
-                                    <label class="form-check-label">
-                                        {{ $tag->name }}
-                                    </label>
-                                </div>
-                            @endforeach
-                        @else
-                            <p class="">Non ci sono tag per questo post</p>
-                        @endif
+                        <label for="date" class="col-form-label">Date</label>
+                        <input type="date" id="date" class="form-control" name="date" value="{{ $event->date }}" readonly>
                     </div>
-
-                    <!-- Creato il -->
-                    <p class="">L'articolo è stato scritto @if (isset($post->member)) {{ "da " . $post->member->name . " " . $post->member->surname }} @endif il {{ $post->created_at }}</p>
                 </div><!-- /.card-body -->
             </div>
         </div>
-        @if (isset($post->imgs))
+
         <div class="col-6">
             <div class="card card-primary">
                 <div class="card-header bg-light">
-                    <h3 class="card-title">Foto</h3>
+                    <h3 class="card-title">Locandina</h3>
                 </div><!-- /.card-header -->
 
                 <!-- start -->
                 <div class="card-body">
-                    @foreach ($post->imgs as $image)
-                        <img class="w-100" src="<?= asset("storage/$image->img") ?>" alt="foto del post {{ $post->title }}">
-                    @endforeach
+                    <img class="w-100" src="<?= asset("storage/$event->cover") ?>" alt="foto dell'evento {{ $event->title }}">
                 </div><!-- /.card-body -->
             </div>
         </div>
-        @endif
     </div>
 </section><!-- /.content -->
 @endsection
