@@ -14,7 +14,7 @@ class PostController extends Controller
 {
     public function getPosts()
     {
-        $posts = Post::orderBy('created_at', 'desc')->take(10)->get();
+        $posts = Post::orderBy('created_at', 'desc')->take(12)->get();
 
         foreach ($posts as $post)
         {
