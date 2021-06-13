@@ -6,14 +6,14 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Posts</h1>
+                <h1>Events</h1>
             </div>
 
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('admin.post.index') }}">Posts</a></li>
-                    <li class="breadcrumb-item">{{ $post->title }}</li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.event.index') }}">Events</a></li>
+                    <li class="breadcrumb-item">{{ $event->title }}</li>
                 </ol>
             </div>
         </div>
@@ -30,7 +30,7 @@
                 </div><!-- /.card-header -->
 
                 <!-- form start -->
-                <form method="POST" action="{{ route('admin.post.update', ['post' => $post->id]) }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('admin.event.update', ['event' => $event->id]) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 
@@ -50,41 +50,19 @@
                         <!-- Title -->
                         <div class="form-group">
                             <label for="title">Titolo</label>
-                            <input type="text" id="title" class="form-control @error('title') is-invalid @enderror" name="title" placeholder="Inserisci il titolo" value="{{ old('title', $post->title) }}" required>
+                            <input type="text" id="title" class="form-control @error('title') is-invalid @enderror" name="title" placeholder="Inserisci il titolo" value="{{ old('title', $event->title) }}" required>
                         </div>
 
-                        <!-- Body -->
+                        <!-- Location -->
                         <div class="form-group">
-                            <label for="body">Articolo</label>
-                            <textarea id="body" class="form-control" rows="4" name="body" placeholder="Inserisci il corpo dell'articolo" required>{{ old('body', $post->body) }}</textarea>
+                            <label for="location">Luogo</label>
+                            <input type="text" id="location" class="form-control @error('location') is-invalid @enderror" name="location" placeholder="Inserisci il luogo" value="{{ old('location', $event->location) }}" required>
                         </div>
 
-                        <!-- Author -->
+                        <!-- Date dd/mm/yyyy -->
                         <div class="form-group">
-                            <label for="member_id">Autore</label>
-                            <select id="member_id" class="form-control @error('member_id') is-invalid @enderror" name="member_id">
-                                <option value="">Seleziona l'autore</option>
-                                @foreach ($members as $member)
-                                    <option value="{{ $member->id }}"
-                                        {{ (old('author', $post->member_id) == $member->id) ? 'selected' : ''}}>
-                                        {{ $member->name . " " . $member->surname }}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <!-- Tags -->
-                        <div class="form-group">
-                            <label>Tags</label>
-                            @foreach ($tags as $tag)
-                                <div class="form-check">
-                                    <input name="tags[]" class="form-check-input @error('tags[]') is-invalid @enderror" type="checkbox" value="{{ $tag->id }}"
-                                    {{ $post->tags->contains($tag) ? 'checked' : ''}}>
-                                    <label class="form-check-label">
-                                        {{ $tag->name }}
-                                    </label>
-                                </div>
-                            @endforeach
+                            <label for="date" class="col-form-label">Date</label>
+                            <input type="date" id="date" class="form-control @error('date') is-invalid @enderror" name="date" value="{{ old('date', $event->date) }}" required>
                         </div>
                     </div><!-- /.card-body -->
 

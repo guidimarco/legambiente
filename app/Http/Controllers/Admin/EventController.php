@@ -93,9 +93,16 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Event $event)
     {
-        //
+        if ($event)
+        {
+            $data = [
+                'event' => $event
+            ];
+            return view('admin.events.edit', $data);
+        }
+        abort(404);
     }
 
     /**
@@ -105,9 +112,21 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Event $event)
     {
-        //
+        // validation
+        $request->validate([
+            'title' => 'required|max:255',
+            'location' => 'required|max:255',
+            'date' => 'required|date_format:Y-m-d'
+        ]);
+
+        // get all info
+        $event_info = $request->all();
+
+        $event->update($event_info);
+
+        return redirect()->route('admin.event.index')->withMessage('Salvataggio avvenuto correttamente');
     }
 
     /**

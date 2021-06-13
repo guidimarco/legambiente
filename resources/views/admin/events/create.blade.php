@@ -54,7 +54,7 @@
 
                         <!-- Location -->
                         <div class="form-group">
-                            <label for="location">Titolo</label>
+                            <label for="location">Luogo</label>
                             <input type="text" id="location" class="form-control @error('location') is-invalid @enderror" name="location" placeholder="Inserisci il luogo" value="{{ old('location') }}" required>
                         </div>
 
