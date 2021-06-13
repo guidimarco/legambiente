@@ -11,53 +11,34 @@
         <div class="col-12">
             <div id="carouselContainer">
                 <div id="carouselWrapper" class="carousel slide" data-ride="carousel">
+                    @if ($nextEvents->count() !== 1)
                     <!-- indicators -->
                     <ol class="carousel-indicators">
-                        <li data-target="#carouselWrapper" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselWrapper" data-slide-to="1"></li>
-                        <li data-target="#carouselWrapper" data-slide-to="2"></li>
+                        @foreach ($nextEvents as $nextEvent)
+                        <li data-target="#carouselWrapper" data-slide-to="{{ $loop->index }}" class="{{ ($loop->index === 0) ? 'active' : '' }}"></li>
+                        @endforeach
                     </ol>
+                    @endif
+
                     <!-- Events -->
                     <div class="carousel-inner">
-                        <!-- Single event -->
-                        <div class="carousel-item active">
-                            <img class="d-block w-100" src="img/1.jpeg" alt="First slide">
+                        @foreach ($nextEvents as $nextEvent)
+                        <div class="carousel-item {{ ($loop->index === 0) ? 'active' : '' }}">
+                            <img class="d-block w-100" src="storage/{{ $nextEvent->cover }}" alt="{{ $nextEvent->title }}">
                             <div class="carousel-caption d-none d-md-block">
-                                <span class="text-uppercase primary-badge mb-2">27 Maggio 18:00 --> 20:00</span>
-                                <h6 class="title text-uppercase">Workshop su ambiente riuso ed economia circolare</h6>
-                                <p class="text-uppercase">Piazza "Aldo Moro"</p>
+                                <span class="text-uppercase primary-badge mb-2">{{ date('d/m', strtotime($nextEvent->date)) }}</span>
+                                <h6 class="title text-uppercase">{{ $nextEvent->title }}</h6>
+                                <p class="text-uppercase">{{ $nextEvent->location }}</p>
                                 <!-- icons -->
                                 <div class="carousel-icons">
-                                    <a href="img/1.jpeg" alt="scarica l'evento" download><i class="fas fa-file-download"></i></a>
+                                    <a href="storage/{{ $nextEvent->cover }}" alt="scarica l'evento" download><i class="fas fa-file-download"></i></a>
                                 </div>
                             </div>
                         </div>
-                        <!-- Single event -->
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="img/2.jpeg" alt="Second slide">
-                            <div class="carousel-caption d-none d-md-block">
-                            <span class="text-uppercase primary-badge mb-2">27 Maggio 18:00 --> 20:00</span>
-                                <h6 class="title text-uppercase">Il sabato dell'ambiente</h6>
-                                <!-- icons -->
-                                <div class="carousel-icons">
-                                    <a href="img/2.jpeg" alt="scarica l'evento" download><i class="fas fa-file-download"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Single event -->
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="img/3.jpeg" alt="Third slide">
-                            <div class="carousel-caption d-none d-md-block">
-                            <span class="title text-uppercase primary-badge mb-2">27 Maggio 18:00 --> 20:00</span>
-                                <h6 class="text-uppercase">Smart School</h6>
-                                <p class="text-uppercase">Fondazione Campus</p>
-                                <!-- icons -->
-                                <div class="carousel-icons">
-                                    <a href="img/3.jpeg" alt="scarica l'evento" download><i class="fas fa-file-download"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
+
+                    @if ($nextEvents->count() !== 1)
                     <!-- Prev button -->
                     <a class="carousel-control-prev" href="#carouselWrapper" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -68,6 +49,7 @@
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
+                    @endif
                 </div>
             </div>
         </div>

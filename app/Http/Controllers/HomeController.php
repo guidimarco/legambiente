@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Carbon\Carbon;
+
 use App\Post;
 use App\Img;
+use App\Event;
 
 class HomeController extends Controller
 {
@@ -26,13 +29,19 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        $data = [
+            'nextEvents' => Event::where('date', '>=', Carbon::today())->get()
+        ];
+        return view('welcome', $data);
     }
 
     // next events
     public function next()
     {
-        return view('next');
+        $data = [
+            'nextEvents' => Event::where('date', '>=', Carbon::today())->get()
+        ];
+        return view('next', $data);
     }
 
     public function contactUs()

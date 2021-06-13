@@ -13,10 +13,12 @@
 
                             <li>
                             <ul id="menu-items">
+                                @if ($nextEvents->count() > 0)
                                 <li class="btn-menu"><a href="{{ route('next') }}"><span class="btn-menu-text tooltip-ref">
                                     Next
                                     <span class="tooltip-text">Prossimi eventi</span>
                                 </span></a></li>
+                                @endif
                                 <li class="btn-menu"><a href="{{ route('posts') }}"><span class="btn-menu-text tooltip-ref">
                                     Posts
                                     <span class="tooltip-text">Articoli</span>
