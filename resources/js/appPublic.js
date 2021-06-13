@@ -15,7 +15,6 @@ function remove_hash_from_url() {
     }
 }
 
-
 $(document).ready(function() {
 
     var postsWrapper = document.getElementById("posts-wrapper");

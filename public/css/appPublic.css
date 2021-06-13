@@ -11075,6 +11075,62 @@ body {
   visibility: visible;
 }
 
+#carouselWrapper {
+  width: 100%;
+  height: 100%;
+}
+
+#carouselWrapper .carousel-inner {
+  height: 100%;
+  border-radius: 12px;
+}
+
+#carouselWrapper .carousel-inner .carousel-item {
+  position: relative;
+  height: 100%;
+}
+
+#carouselWrapper .carousel-inner .carousel-item img {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+#carouselWrapper .carousel-inner .carousel-item .carousel-caption {
+  display: flex !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  color: #435061;
+  background-color: rgba(255, 255, 255, 0.8);
+  position: absolute;
+  height: 140px;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#carouselWrapper .carousel-inner .carousel-item .carousel-caption .carousel-icons {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+#carouselWrapper .carousel-inner .carousel-item .carousel-caption .carousel-icons > a {
+  cursor: pointer;
+  margin-left: 10px;
+  font-size: 22px;
+  color: #008E4F;
+}
+
+#carouselWrapper .carousel-inner .carousel-item .carousel-caption .carousel-icons > a:hover {
+  color: #20c997;
+}
+
 #main-section {
   min-height: 100vh;
   padding-top: 100px;
@@ -11255,74 +11311,13 @@ footer div #footer-title.legambiente {
   padding: 20px 0;
 }
 
-#next-page #carouselWrapper {
+#next-page #carouselContainer {
   height: 60vh;
   width: 100%;
 }
 
-#next-page #carouselWrapper .carousel-inner {
-  height: 100%;
-  border-radius: 12px;
-}
-
-#next-page #carouselWrapper .carousel-inner .carousel-item {
-  position: relative;
-  height: 100%;
-}
-
-#next-page #carouselWrapper .carousel-inner .carousel-item img {
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
-}
-
-#next-page #carouselWrapper .carousel-inner .carousel-item .carousel-caption {
-  display: flex !important;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  color: #435061;
-  background-color: rgba(255, 255, 255, 0.8);
-  position: absolute;
-  height: 140px;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-
-#next-page #carouselWrapper .carousel-inner .carousel-item .carousel-caption .carousel-icons {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-}
-
-#next-page #carouselWrapper .carousel-inner .carousel-item .carousel-caption .carousel-icons > a {
-  cursor: pointer;
-  margin-left: 10px;
-  font-size: 22px;
-  color: #008E4F;
-}
-
-#next-page #carouselWrapper .carousel-inner .carousel-item .carousel-caption .carousel-icons > a:hover {
-  color: #20c997;
-}
-
-#next-page #carouselWrapper .carousel-inner .carousel-item::before {
-  content: "";
-  background-color: rgba(255, 255, 255, 0.4);
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
 @media screen and (min-width: 576px) {
-  #next-page #carouselWrapper {
+  #next-page #carouselContainer {
     width: 60vw;
     margin: auto;
   }
@@ -11371,6 +11366,7 @@ footer div #footer-title.legambiente {
   background-size: cover;
   border-radius: 12px;
   margin-bottom: 30px;
+  cursor: pointer;
 }
 
 #posts-page #posts-wrapper .post-card::after {
@@ -11434,8 +11430,10 @@ footer div #footer-title.legambiente {
   max-height: 100px;
 }
 
-#posts-page #posts-wrapper .post-card #carouselPostWrapper {
-  display: none;
+#posts-page #posts-wrapper .post-card #carouselContainer {
+  height: 0px;
+  overflow: hidden;
+  transition: height 1s;
 }
 
 #posts-page #posts-wrapper .post-card.active {
@@ -11500,7 +11498,8 @@ footer div #footer-title.legambiente {
   height: 50px;
 }
 
-#posts-page #posts-wrapper .post-card.active.carousel-visible .post-card-info #carouselPostWrapper {
-  display: block;
+#posts-page #posts-wrapper .post-card.active.carousel-visible #carouselContainer {
+  height: 80vh;
+  padding-top: 10px;
 }
 
