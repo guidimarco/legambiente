@@ -1,5 +1,7 @@
 @extends('layouts.guest.app')
 
+@section('title', 'Legambiente Capannori | About us')
+
 @section('content')
 <div id="next-page" class="container-fluid">
     <div class="row">

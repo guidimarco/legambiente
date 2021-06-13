@@ -25,6 +25,9 @@ Route::namespace('Admin') -> prefix('admin') -> name('admin.') -> middleware('au
     // post
     Route::resource('/post', 'PostController');
     Route::resource('/tags', 'TagController');
+
+    // events
+    Route::resource('/event', 'EventController');
 });
 
 // PUBLIC

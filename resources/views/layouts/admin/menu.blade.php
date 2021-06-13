@@ -13,7 +13,7 @@
 </li>
 
 <li class="nav-item">
-    <a href="gallery.html" class="nav-link">
+    <a href="{{ route('admin.event.index') }}" class="nav-link">
         <i class="nav-icon fas fa-calendar-alt"></i>
         <p>Eventi</p>
     </a>

@@ -1,0 +1,86 @@
+@extends('layouts.admin.app')
+
+@section('content')
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Posts</h1>
+            </div>
+
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.post.index') }}">Posts</a></li>
+                    <li class="breadcrumb-item">{{ $post->title }}</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="@if (isset($post->imgs)) col-6 @else col-12 @endif">
+            <div class="card card-primary">
+                <div class="card-header bg-light">
+                    <h3 class="card-title">Post info</h3>
+                </div><!-- /.card-header -->
+
+                <!-- start -->
+                <div class="card-body">
+                    <!-- Title -->
+                    <div class="form-group">
+                        <label for="title">Titolo</label>
+                        <input type="text" id="title" class="form-control" name="title" value="{{ $post->title }}" readonly>
+                    </div>
+
+                    <!-- Body -->
+                    <div class="form-group">
+                        <label for="body">Articolo</label>
+                        <textarea id="body" class="form-control" rows="4" name="body" readonly>{{ $post->body }}</textarea>
+                    </div>
+
+                    <!-- Tags -->
+                    <div class="form-group">
+                        <label>Tags</label>
+                        @if ($post->tags->count() > 0)
+                            @foreach ($post->tags as $tag)
+                                <div class="form-check">
+                                    <input name="tags[]" class="form-check-input" type="checkbox" value="{{ $tag->id }}" onclick="return false;" checked>
+                                    <label class="form-check-label">
+                                        {{ $tag->name }}
+                                    </label>
+                                </div>
+                            @endforeach
+                        @else
+                            <p class="">Non ci sono tag per questo post</p>
+                        @endif
+                    </div>
+
+                    <!-- Creato il -->
+                    <p class="">L'articolo è stato scritto @if (isset($post->member)) {{ "da " . $post->member->name . " " . $post->member->surname }} @endif il {{ $post->created_at }}</p>
+                </div><!-- /.card-body -->
+            </div>
+        </div>
+        @if (isset($post->imgs))
+        <div class="col-6">
+            <div class="card card-primary">
+                <div class="card-header bg-light">
+                    <h3 class="card-title">Foto</h3>
+                </div><!-- /.card-header -->
+
+                <!-- start -->
+                <div class="card-body">
+                    @foreach ($post->imgs as $image)
+                        <img class="w-100" src="<?= asset("storage/$image->img") ?>" alt="foto del post {{ $post->title }}">
+                    @endforeach
+                </div><!-- /.card-body -->
+            </div>
+        </div>
+        @endif
+    </div>
+</section><!-- /.content -->
+@endsection
