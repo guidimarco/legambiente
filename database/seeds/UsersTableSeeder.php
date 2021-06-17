@@ -15,9 +15,9 @@ class UsersTableSeeder extends Seeder
     {
         $users = [
             [
-                'name' => 'Marco',
-                'email' => 'marco@mail.com',
-                'password' => 'ciao'
+                'name' => 'Admin',
+                'email' => 'mark.88g@outlook.com',
+                'password' => 'nuova+password%DB2021legambiente'
             ]
         ];
 
