@@ -24,10 +24,5 @@ Route::get('/cache/config-clear', function() {
     return 'config:clear is cleared';
 });
 
-// MIDDLEWARE
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 // POSTS
 Route::get('/get-posts', 'Api\PostController@getPosts');
