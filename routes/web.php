@@ -13,6 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// CACHE
+Route::get('/cache/view-clear', function() {
+    Artisan::call('view:clear');
+    return 'view-clear is cleared';
+});
+Route::get('/cache/config-clear', function() {
+    Artisan::call('config:clear');
+    return 'config:clear is cleared';
+});
+
 // ADMIN
 Auth::routes(['register' => false]);
 Route::namespace('Admin') -> prefix('admin') -> name('admin.') -> middleware('auth') -> group(function() {
