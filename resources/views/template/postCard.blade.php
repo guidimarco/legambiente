@@ -59,13 +59,11 @@
                     @{{else}}
                         Autore: &#129335;
                     @{{/if}}
-                
-                    
                 </p>
             </div>
 
             <div class="post-card-body">
-                @{{ body }}
+                <p><pre>@{{ body }}</pre></p>
             </div>
         </div>
     </div>
