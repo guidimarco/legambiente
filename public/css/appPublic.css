@@ -11331,6 +11331,7 @@ footer div #footer-title.legambiente {
   margin: auto;
   background-color: rgba(255, 255, 255, 0.4);
   border-radius: 12px;
+  padding: 15px;
 }
 
 #contact-us #contacts li {
