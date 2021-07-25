@@ -13,13 +13,9 @@
     <!-- <script src="sweetalert2.all.min.js"></script> -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-
     @yield('third_party_stylesheets')
 
     @stack('page_css')
-
-    <!-- Google verification -->
-    <meta name="google-site-verification" content="DQz_SxymVjKzc8PdO7msTa0qTIuzuzXB-NjIoLUZrGg" />
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
