@@ -13,6 +13,9 @@
 
     <link href="{{ asset('css/appPublic.css') }}" rel="stylesheet">
 
+    <!-- Google verification -->
+    <meta name="google-site-verification" content="DQz_SxymVjKzc8PdO7msTa0qTIuzuzXB-NjIoLUZrGg" />
+
     @yield('third_party_stylesheets')
 
     @stack('page_css')
