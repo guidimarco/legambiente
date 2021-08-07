@@ -1,6 +1,7 @@
 #contact-us-container {
     @include flex(row, center, center);
     min-height: 100%;
+    
     #contact-us {
         max-width: 500px;
         margin: auto;
