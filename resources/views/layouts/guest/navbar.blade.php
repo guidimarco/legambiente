@@ -8,7 +8,7 @@
                         <ul id="main-menu">
                             <!-- Logo -->
                             <li>
-                            <img id="brand-logo" src="img/logo.png" alt="logo legambiente">
+                                <a href="{{ route('welcome') }}"><img id="brand-logo" src="img/logo.png" alt="logo legambiente"></a>
                             </li>
 
                             <li>
@@ -25,7 +25,7 @@
                                 </span></a></li> -->
                                 <li class="btn-menu"><a href="{{ route('social-posts') }}"><span class="btn-menu-text tooltip-ref">
                                     Posts
-                                    <span class="tooltip-text">I post dai nostri social</span>
+                                    <span class="tooltip-text">Dai nostri social</span>
                                 </span></a></li>
                                 <li class="btn-menu"><a href="{{ route('contact-us') }}"><span class="btn-menu-text tooltip-ref">
                                     Contact us

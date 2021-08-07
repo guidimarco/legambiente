@@ -27,7 +27,7 @@
     @include('layouts.guest.navbar')
     
     <!-- Main section -->
-    <section id="main-section" class="welcome">
+    <section id="main-section">
         @yield('content')
     </section>
 </div>

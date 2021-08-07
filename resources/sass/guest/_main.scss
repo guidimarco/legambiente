@@ -1,31 +1,40 @@
 #main-section {
-    min-height: 100vh;
+    height: 100vh;
     padding-top: 100px;
     padding-bottom: 50px;
     background-image: url(~/img/jumbotron.jpg);
     background-position: center;
     background-size: cover;
+    overflow-y: auto;
 
-    // welcome page
-    &.welcome {
-        @include flex(row, center, flex-end);
-        text-align: center;
-        text-transform: uppercase;
-        font-family: 'Cabin Sketch', cursive;
-        color: $colTextHov;
-        #main-title {
-            font-size: 26px;
-            text-align: center;
-        }
+    .container {
+        max-width: 760px;
     }
 
-    // other public pages
-    &.app-public {
-        @include flex(column, center, center);
-        h1 {
-            text-transform: uppercase;
-            font-size: 26px;
-            font-family: 'Cabin Sketch', cursive;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Cabin Sketch', cursive;
+    color: $colTextHov;
+    #main-title {
+        font-size: 26px;
+        text-align: center;
+    }
+
+    h1 {
+        text-transform: uppercase;
+        font-size: 26px;
+        font-family: 'Cabin Sketch', cursive;
+    }
+
+    .post-item {
+        margin: 10px 0;
+    }
+}
+
+@media screen and (min-width: $lg-min) {
+    #main-section {
+        .container {
+            max-width: 1140px;
         }
     }
 }
