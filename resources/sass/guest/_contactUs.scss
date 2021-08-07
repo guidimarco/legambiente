@@ -1,15 +1,19 @@
-#contact-us {
-    max-width: 440px;
-    margin: auto;
-    background-color: rgba(255,255,255, 0.4);
-    border-radius: 12px;
-    padding: 15px;
-    #contacts {
-        li {
-            display: block;
-            @include flex(row, flex-start, center);
-            .contact-info {
-                font-family: 'Cabin Sketch', cursive;
+#contact-us-container {
+    @include flex(row, center, center);
+    min-height: 100%;
+    #contact-us {
+        max-width: 500px;
+        margin: auto;
+        background-color: rgba(255,255,255, 0.4);
+        border-radius: 12px;
+        padding: 15px;
+        #contacts {
+            li {
+                display: block;
+                @include flex(row, flex-start, center);
+                .contact-info {
+                    font-family: 'Cabin Sketch', cursive;
+                }
             }
         }
     }
