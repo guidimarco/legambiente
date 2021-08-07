@@ -19,9 +19,13 @@
                                     <span class="tooltip-text">Prossimi eventi</span>
                                 </span></a></li>
                                 @endif
-                                <li class="btn-menu"><a href="{{ route('posts') }}"><span class="btn-menu-text tooltip-ref">
+                                <!-- <li class="btn-menu"><a href="{{ route('posts') }}"><span class="btn-menu-text tooltip-ref">
                                     Posts
                                     <span class="tooltip-text">Articoli</span>
+                                </span></a></li> -->
+                                <li class="btn-menu"><a href="{{ route('social-posts') }}"><span class="btn-menu-text tooltip-ref">
+                                    Posts
+                                    <span class="tooltip-text">I post dai nostri social</span>
                                 </span></a></li>
                                 <li class="btn-menu"><a href="{{ route('contact-us') }}"><span class="btn-menu-text tooltip-ref">
                                     Contact us

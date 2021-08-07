@@ -46,16 +46,30 @@ class HomeController extends Controller
 
     public function contactUs()
     {
-        return view('contactUs');
+        $data = [
+            'nextEvents' => Event::where('date', '>=', Carbon::today())->get()
+        ];
+        return view('contactUs', $data);
     }
 
     public function aboutUs()
     {
-        return view('aboutUs');
+        $data = [
+            'nextEvents' => Event::where('date', '>=', Carbon::today())->get()
+        ];
+        return view('aboutUs', $data);
     }
 
     public function posts()
     {
-        return view('posts');
+        return view('posts', $data);
+    }
+
+    public function socialPosts()
+    {
+        $data = [
+            'nextEvents' => Event::where('date', '>=', Carbon::today())->get()
+        ];
+        return view('social-posts', $data);
     }
 }
