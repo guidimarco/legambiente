@@ -1,0 +1,11 @@
+#welcome-wrapper {
+    min-height: 100%;
+    @include flex(row, center, center);
+
+    #welcome-container {
+        text-align: center;
+        .main-text {
+            max-width: 600px;
+        }
+    }
+}

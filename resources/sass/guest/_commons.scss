@@ -27,7 +27,7 @@ h1 {
     font-family: 'Cabin Sketch', cursive;
 }
 
-body {
+body, p {
     font-family: 'Lato', Arial, Helvetica, sans-serif;
 }
 
@@ -173,4 +173,8 @@ body {
             }
         }
     }
+}
+
+.container-fluid, .row {
+    height: 100%;
 }
